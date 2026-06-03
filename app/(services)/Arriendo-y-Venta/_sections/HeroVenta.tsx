@@ -1,3 +1,5 @@
-export default function HeroVenta(){
+export default function HeroVenta() {
+    return <div>
 
+    </div>
 }
