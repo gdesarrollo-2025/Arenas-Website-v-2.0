@@ -1,0 +1,17 @@
+export type domusQuery = {
+    page?: number,
+    city?: string,
+    neighborhood?: string,
+    type?: string,  
+    biz?: string,
+    bedrooms?: string,
+    bathrooms?: string,
+    pvmin?:number,
+    pvmax?:number,
+    prmin?:number,
+    prmax?:number,
+    minArea?: number,
+    maxArea?: number,
+    stratum?: string,
+    destination?: number,
+}

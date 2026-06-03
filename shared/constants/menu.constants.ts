@@ -1,21 +1,12 @@
-export type MenuItem = {
-    name: string,
-    pages: pageItem[];
-}
-
-type pageItem = {
-    name: string,
-    link: string,
-}
-
-export const Menu: MenuItem[] = [
+import { MenuItem } from "../type/menu.type"
+export const menu: MenuItem[] = [
     {
         name: "Inmuebles",
         pages: [
             { name: "Vivienda", link: "" },
             { name: "Comercio", link: "" },
-            { name: "Proyecto", link: "" },
-            { name: "Exclusivos", link: "" },
+            { name: "Proyectos inmobiliarios", link: "" },
+            { name: "Arenas Boutique", link: "" },
         ]
     },
     {
@@ -29,15 +20,15 @@ export const Menu: MenuItem[] = [
     {
         name: "Portal de clientes",
         pages: [
-            { name: "Propietarios", link: "/owners" },
-            { name: "Arrendatarios", link: "/tenants" },
+            { name: "Propietarios", link: "/Propietarios" },
+            { name: "Arrendatarios", link: "/Arrendatarios" },
             { name: "Consigna tu inmueble", link: "/#" }
         ]
     },
     {
         name: "Servicios",
         pages: [
-            { name: "Arriendo y Venta", link: "/rent-and-sell" },
+            { name: "Arriendo y Venta", link: "/Arriendo-y-Venta" },
             { name: "Partner comercializador", link: "/projects-and-companies" },
             { name: "Marketing Inmobiliario", link: "#" },
             { name: "Perfilador de credito", link: "#" }

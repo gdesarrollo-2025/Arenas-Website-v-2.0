@@ -1,31 +1,34 @@
 import Link from "next/link";
-import { Menu } from "./constants/menu.constants";
-import { quickItem } from "./constants/icons.constants";
+import { menu } from "../../constants/menu.constants";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
+import { quickItem } from "@/shared/type/menu.type";
+import { Search, Menu, Favorites, Pse } from "@/shared/components/Icons";
 
 export default function LayoutHeader() {
+    
     const quick: quickItem[] = [
         {
-            svg: "",
-            content: <button>Buscar</button>
+            content: <button className="rounded-full border-2 aspect-square h-8 p-1"><Search className="stroke-text h-auto" /></button>
         },
         {
-            svg: "",
-            content: <Link href="/favorites">favoritos</Link>
+            content: <Link
+                className="rounded-full border-2 aspect-square h-8 p-1 flex "
+                href="/favorites"
+            >
+                <Favorites className="h-auto stroke-text" />
+            </Link>
         },
         {
-            svg: "",
-            content: <a>
-                pagos pse
+            content: <a className="rounded-full border-2 aspect-square h-8 p-1 flex "
+                href="/favorites">
+                <Pse className="h-auto stroke-text"/>
             </a>
         }
     ]
 
-    return <header>
-        <Link href="/">
-        </Link>
-        <HeaderDesktop menu={Menu} quickButtons={quick}/>
-        <HeaderMobile menu={Menu} quickButtons={quick}/>
+    return <header className="fixed w-full z-20 bg-background px-5 shadow-md">
+        <HeaderDesktop menu={menu} quickButtons={quick} />
+        <HeaderMobile menu={menu} quickButtons={quick} />
     </header>
 }

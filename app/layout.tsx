@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Montserrat } from "next/font/google";
+
+
 import LayoutHeader from "@/shared/layout/header/LayoutHeader";
+import LayoutFooter from "@/shared/layout/footer/LayoutFooter";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,11 +25,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${montserrat.variable}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <LayoutHeader />
+      <body className="min-h-full flex flex-col justify-between gap-5">
+        <LayoutHeader self-start/>
         {children}
+        <LayoutFooter />
       </body>
     </html>
   );

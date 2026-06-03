@@ -1,0 +1,22 @@
+export type domusProperty = {
+    idpro: number,
+    codpro: number,
+    address: string,
+    city: string,
+    zone: string,
+    city_zone: string,
+    neighborhood: string,
+    type: string,
+    biz: string,
+    area_cons: number,
+    area_lot: number,
+    bedrooms: number,
+    bathrooms: number,
+    price_format: string,
+    administration: number,
+    latitude: string,
+    longitude: string,
+    description: string,
+    parking: number,
+    image1: string
+}
