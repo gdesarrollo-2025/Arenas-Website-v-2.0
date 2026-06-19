@@ -3,13 +3,16 @@ import { menu } from "../../constants/menu.constants";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
 import { quickItem } from "@/shared/type/menu.type";
-import { Search, Menu, Favorites, Pse } from "@/shared/components/Icons";
+
+import Pse from "@/public/PSE.svg";
+import Favorites from "@/public/Favorites.svg"
+import SearchCommand from "@/shared/components/searchCommand";
 
 export default function LayoutHeader() {
-    
+
     const quick: quickItem[] = [
         {
-            content: <button className="rounded-full border-2 aspect-square h-8 p-1"><Search className="stroke-text h-auto" /></button>
+            content: <SearchCommand/>
         },
         {
             content: <Link
@@ -22,7 +25,7 @@ export default function LayoutHeader() {
         {
             content: <a className="rounded-full border-2 aspect-square h-8 p-1 flex "
                 href="/favorites">
-                <Pse className="h-auto stroke-text"/>
+                <Pse className="h-auto stroke-text" />
             </a>
         }
     ]

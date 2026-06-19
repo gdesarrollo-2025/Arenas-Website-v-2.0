@@ -9,11 +9,11 @@ import PropertiesSection from "./_sections/PropertiesSection";
 export default function Home() {
   return <div className="mt-[15vh] overflow-hidden">
     <HeroSection />
-    <FocusSection/>
-    <InformationSection/>
-    <ServicesSection/>
-    <BoutiqueSection/>
-    <PropertiesSection/>
-    <ReviewSection/>
+    <FocusSection />
+    <InformationSection />
+    <ServicesSection />
+    <BoutiqueSection />
+    <PropertiesSection />
+    <ReviewSection />
   </div>
 }

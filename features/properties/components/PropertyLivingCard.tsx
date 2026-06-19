@@ -12,14 +12,14 @@ export default function PropertyLivingCard({ property, location, title }: { prop
 
     return <div className="flex flex-col h-87.5 w-60 justify-between overflow-hidden shadow-lg/40  rounded-xl">
         <div className="relative h-1/2 w-full">
-            <Image src={property.image} alt="propiedad" fill className="object-cover" />
+            <Image src={property.image} alt="propiedad" fill className="object-cover " sizes="240px" />
         </div>
         <div className=" flex flex-col justify-between w-full h-1/2 bg-background p-5">
             <p className="font-bold">Cod: {property.code}</p>
             <div className="flex flex-col gap-1 ">
                 <div className="flex flex-col">
                     <small>{location}</small>
-                    <p className="font-semibold">{title}</p>
+                    <p className=" font-semibold">{title}</p>
                 </div>
                 <p className="font-bold">{property.price_format}</p>
                 {(property.administration !== 0) && (

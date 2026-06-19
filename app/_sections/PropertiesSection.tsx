@@ -1,14 +1,51 @@
+import dynamic from "next/dynamic";
+
 import PropertyCardResolver from "@/features/properties/components/PropertyCardResolver"
 import { getPropertiesAll } from "@/features/properties/services/properties.service"
 
-import Carrousel from "@/shared/components/Carrousel"
+import { Suspense } from "react";
 
+const Carrousel = dynamic(() => import("@/shared/components/Carrousel"));
+
+
+async function CarrouselProperties() {
+    const data = await getPropertiesAll({ page: Math.floor(Math.random() * 100), biz: "1" }, 10)
+    return <div className="w-full h-full relative">
+        <Carrousel className="w-full" slideClassName="flex place-items-center p-5 " modules={["navigation"]} speed={300} spaceBetween={20} slidesPerView={1} loop={true} navigation={true} autoplay={{ delay: 10000 }} breakpoints={{ 426: { slidesPerView: 2 }, 769: { slidesPerView: 3 }, 1025: { slidesPerView: 4 } }}>
+            {data.properties.map((p) => (
+                <PropertyCardResolver key={p.id} property={p} view="vivienda" />
+            ))}
+        </Carrousel>
+    </div>
+}
+
+function CarrouselSkeleton() {
+    return <div>
+        <div className="hidden xl:grid grid-cols-4 w-full h-full ">
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+        </div>
+        <div className="hidden lg:grid  xl:hidden grid-cols-3 w-full h-full ">
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+        </div>
+        <div className="hidden md:grid  lg:hidden grid-cols-2 w-full h-full ">
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+        </div>
+        <div className="grid md:hidden  lg:hidden grid-cols-1 w-full h-full ">
+            <div className="place-self-center h-87.5 w-60 rounded-xl shadow-lg/40 bg-secondary/10 animate-pulse " />
+        </div>
+    </div>
+}
 
 export default async function PropertiesSection() {
 
 
-    const data = await getPropertiesAll({ page: Math.floor(Math.random() * 100), destination: 1, biz: "1" }, 10)
-    return <div className="max-w-[90vw] h-fit my-5 mx-auto ">
+    return <section className="max-w-[90vw] h-fit my-5 mx-auto ">
         <div className="flex flex-col lg:flex-row items-start justify-between ">
             <h3 className="font-semibold">Descubre el inmueble perfecto para ti</h3>
             <div className="flex flex-col gap-4 w-full lg:w-1/2">
@@ -16,10 +53,8 @@ export default async function PropertiesSection() {
                 <p>Si no se ajustan a tu necesidad ingresa en el buscador en la parte superior de este sitio web</p>
             </div>
         </div>
-        <Carrousel className="w-full" slideClassName="flex place-items-center p-5 " modules={["navigation"]} speed={300} spaceBetween={20} slidesPerView={1} loop={true} navigation={true} autoplay={{ delay: 10000 }} breakpoints={{ 426: { slidesPerView: 2 }, 769: { slidesPerView: 3 }, 1025: { slidesPerView: 4 } }}>
-            {data.properties.map((p) => (
-                <PropertyCardResolver key={p.id} property={p} />
-            ))}
-        </Carrousel>
-    </div>
+        <Suspense fallback={<CarrouselSkeleton />}>
+            <CarrouselProperties/>
+        </Suspense>
+    </section>
 }

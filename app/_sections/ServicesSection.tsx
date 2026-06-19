@@ -31,7 +31,7 @@ const services = [
     },
 ]
 export default function ServicesSection() {
-    return <div className="max-w-[90vw] w-full h-full flex flex-col items-center justify-evenly gap-2 mx-auto my-5 ">
+    return <section className="max-w-[90vw] w-full h-full flex flex-col items-center justify-evenly gap-2 mx-auto my-5 ">
         <h2 className="font-semibold text-center ">Nuestros servicios</h2>
         <p className="text-center">Somos un ecosistema inmobiliario que conecta propietarios, compradores, inversionistas y proyectos con
             soluciones claras, seguras y rentables.</p>
@@ -49,7 +49,7 @@ export default function ServicesSection() {
         </div>
         <Link href="" className="self-center lg:self-end bg-accent text-white  mx-5 px-2 py-1 rounded-sm hover:bg-primary active:brightness-125 transition-all duration-300">Ver mas...</Link>
 
-    </div>
+    </section>
 }
 
 

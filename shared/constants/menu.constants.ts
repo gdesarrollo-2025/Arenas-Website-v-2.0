@@ -3,8 +3,8 @@ export const menu: MenuItem[] = [
     {
         name: "Inmuebles",
         pages: [
-            { name: "Vivienda", link: "" },
-            { name: "Comercio", link: "" },
+            { name: "Vivienda", link: "/vivienda" },
+            { name: "Comercio", link: "/comercio" },
             { name: "Proyectos inmobiliarios", link: "" },
             { name: "Arenas Boutique", link: "" },
         ]

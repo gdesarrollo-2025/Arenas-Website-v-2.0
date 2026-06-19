@@ -2,7 +2,7 @@
 import { Children, ReactNode, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Parallax, Autoplay, Controller } from "swiper/modules";
-
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -40,8 +40,8 @@ export default function Carrousel({ children, modules, speed, spaceBetween, slid
 
     const swiperRef = useRef<SwiperType | null>(null)
 
-    return <div className="relative">
-        <button onClick={() => swiperRef.current?.slidePrev()} className="absolute top-1/2 left-5 aspect-square h-auto rounded-full bg-accent z-10"> prev</button>
+    return <>
+        <button onClick={() => swiperRef.current?.slidePrev()} className="absolute  h-auto aspect-square p-1 top-1/2 -left-5  rounded-full bg-accent z-10"><FaChevronLeft className="text-white size-8 aspect-square"/></button>
         <Swiper
             modules={modulesApplied}
             speed={speed}
@@ -62,7 +62,7 @@ export default function Carrousel({ children, modules, speed, spaceBetween, slid
                 </SwiperSlide>
             ))}
         </Swiper>
-        <button onClick={() => swiperRef.current?.slideNext()} className="absolute top-1/2 right-5 aspect-square h-auto rounded-full bg-accent z-10 border-2"> next</button>
-    </div>
+        <button onClick={() => swiperRef.current?.slideNext()} className="absolute h-auto aspect-square p-1 top-1/2 -right-5  rounded-full bg-accent z-10"><FaChevronRight className="text-white size-8 aspect-square"/></button>
+    </>
 
 }

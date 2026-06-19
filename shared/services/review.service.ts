@@ -19,6 +19,11 @@ export async function getReviews() {
                         propertyName: 'hs_value',
                         highValue: '10',
                         value: '8'
+                    },
+                    {
+                        operator: 'GT',
+                        propertyName: 'hs_createdate',
+                        value: '2026-01-01'
                     }
                 ]
             }],
@@ -33,6 +38,6 @@ export async function getReviews() {
     return data.results.map((r:any) => ({
         id: r.id,
         content: r.properties.hs_content,
-        name: r.properties.hs_contact_firstname + " " + r.properties.hs_contact_lastname
+        name: r.properties.hs_contact_firstname 
     }))
 }

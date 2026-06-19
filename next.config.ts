@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  turbopack:{
+  turbopack: {
     rules: {
       "*.svg": {
         loaders: ["@svgr/webpack"],
@@ -9,9 +9,12 @@ const nextConfig: NextConfig = {
       }
     }
   },
-  images:{
+  images: {
     remotePatterns: [
-      new URL("https://s3-us-west-2.amazonaws.com/pictures.domus.la/inmobiliaria_59/**")
+      {
+        protocol: "https",
+        hostname: "s3-us-west-2.amazonaws.com"
+      }
     ]
   }
 };

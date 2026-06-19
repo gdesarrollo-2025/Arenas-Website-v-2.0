@@ -1,4 +1,8 @@
-export const propertyVivienda= [
+export type propertyType = {
+    code: number,
+    name: string
+}
+export const propertyVivienda: propertyType[]= [
     { code: 1, name: "Apartamento" },
     { code: 2, name: "Casa" },
     { code: 8, name: "Finca" },
@@ -8,7 +12,7 @@ export const propertyVivienda= [
 
 ]
 
-export const propertyComercial= [
+export const propertyComercial: propertyType[]= [
 
     { code: 4, name: "Local" },
     { code: 5, name: "Bodega" },
@@ -21,7 +25,7 @@ export const propertyComercial= [
     { code: 20, name: "Hotel" }
 ]
 
-export const propertyTpes= [
+export const propertyTypes: propertyType[]= [
     ...propertyVivienda,
     ...propertyComercial
 ]

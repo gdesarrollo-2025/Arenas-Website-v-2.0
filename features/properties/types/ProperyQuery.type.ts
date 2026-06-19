@@ -13,4 +13,5 @@ export type SearchPropertyQuery = {
     maxArea?: number,
     stratum?: string,
     destination?: number,
+    great?: "on";
 }
