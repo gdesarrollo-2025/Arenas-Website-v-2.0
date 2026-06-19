@@ -7,10 +7,14 @@ type props = {
     value: string;
     onChange: (value: string) => void;
 }
-export default function FiltersBiz({value, onChange}: props) {
+export default function FiltersBiz({ value, onChange }: props) {
     return <Field>
         <FieldLegend>Gestion</FieldLegend>
-        <Select value={value} onValueChange={onChange}>
+        <Select value={value} onValueChange={(value) => {
+            if (value !== null) {
+                onChange(value);
+            }
+        }}>
             <SelectTrigger className={"w-full"}>
                 <SelectValue placeholder="Selecciona un tipo de negocio" />
             </SelectTrigger>
