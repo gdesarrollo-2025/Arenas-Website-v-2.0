@@ -12,7 +12,7 @@ export default function Page() {
     if (!query.page) query.page = 1;
     
     return <div className="flex flex-col gap-5">
-        <HeroSection title="comercio" image="/comercial.webp" />
+        <HeroSection title="comercio" image="/Comercial.webp" />
         <SearchSection filtersPanel={<ComercialFiltersPanel query={query} />}>
             <PropertyList query={query} />
         </SearchSection>

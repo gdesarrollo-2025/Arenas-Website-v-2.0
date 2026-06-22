@@ -30,7 +30,7 @@ export default async function Page({ params, searchParams }: props) {
 
 
     return <div className="flex flex-col gap-5">
-        <HeroSection title="Buscador de inmuebles" image="/Hero-House.webp" />
+        <HeroSection title="Buscador de inmuebles" image="/hero-house.webp" />
         {/* SearchList */}
         <SearchSection filtersPanel={<SearchFiltersPanel query={query} />}>
             <PropertyList query={query}/>

@@ -98,6 +98,7 @@ function extractNumericFilters(text:string):SearchPropertyQuery {
 
     const priceMin = text.match(/(desde|minimo|m[ií]n)\s+(\d+)\s*(millones?|m\b)/i);
     const priceMax = text.match(/(maximo|m[aá]x|hasta)\s+(\d+)\s*(millones?|m\b)/i);
+    
     if (priceMin) filters.minPrice = parseInt(priceMin[2]) * 1_000_000;
     if (priceMax) filters.maxPrice = parseInt(priceMax[2]) * 1_000_000;
 

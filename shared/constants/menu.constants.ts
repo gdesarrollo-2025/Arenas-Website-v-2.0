@@ -12,9 +12,9 @@ export const menu: MenuItem[] = [
     {
         name: "Quienes somos",
         pages: [
-            { name: "Sobre Nosotros", link: "/about-us" },
-            { name: "Nuestros asesores", link: "/brokers" },
-            { name: "Contactanos", link: "/contact-us" }
+            { name: "Sobre Nosotros", link: "/" },
+            { name: "Nuestros asesores", link: "/" },
+            { name: "Contactanos", link: "/" }
         ]
     },
     {
@@ -28,8 +28,8 @@ export const menu: MenuItem[] = [
     {
         name: "Servicios",
         pages: [
-            { name: "Arriendo y Venta", link: "/Arriendo-y-Venta" },
-            { name: "Partner comercializador", link: "/projects-and-companies" },
+            { name: "Arriendo y Venta", link: "/" },
+            { name: "Partner comercializador", link: "/" },
             { name: "Marketing Inmobiliario", link: "#" },
             { name: "Perfilador de credito", link: "#" }
         ]

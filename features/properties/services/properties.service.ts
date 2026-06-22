@@ -8,32 +8,29 @@ import { SearchPropertyQuery } from "../types/ProperyQuery.type";
 const token = process.env.DOMUS_API_TOKEN;
 const base = process.env.DOMUS_BASE
 
-export async function getPropertiesAll(query:SearchPropertyQuery, perPage:number): Promise<PropertySearch>{
+export async function getPropertiesAll(query: SearchPropertyQuery, perPage: number): Promise<PropertySearch> {
 
-    console.log("query dentro del servicio",query)
     const options = {
-        method:"GET",
-        headers:{
+        method: "GET",
+        headers: {
             Authorization: `${token}`,
-            "Inmobiliaria":"1",
+            "Inmobiliaria": "1",
             Accept: "application/json",
-            "PerPage": `${perPage}` 
+            "PerPage": `${perPage}`
         },
     }
 
 
     const finalQuery = buildSearchParams(toDomusQuery(query))
-    console.log(finalQuery)
     const params = new URLSearchParams(finalQuery)
-    const url = base+"/properties?" + params.toString();
-    console.log(url)
+    const url = base + "/properties?" + params.toString();
     const res = await fetch(url, options);
     const data: domusPropertySearchResponse = await res.json();
 
     return toPropertySearch(data);
 }
 
-export async function getPropertyByID(){
+export async function getPropertyByID() {
 
 
 }
