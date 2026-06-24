@@ -4,8 +4,11 @@ import MethodsSection from "./_sections/MethodsSection"
 import PaymentRefundsSection from "./_sections/PaymentRefundsSection"
 import BlogsSection from "./_sections/BlogsSection"
 export default function Page() {
-    return <div className="mt-[15vh] overflow-hidden">
+    return <div className="mt-[15vh] flex flex-col gap-5 overflow-hidden">
         <HeroSection/>
         <PaymentsSection/>
+        <MethodsSection/>
+        <PaymentRefundsSection/>
+        <BlogsSection/>
     </div>
 }

@@ -1,5 +1,5 @@
 import { propertyComercial } from "@/shared/constants/properties.constants";
-
+import { Capitalize } from "@/shared/utils/formatText";
 import { Property } from "../types/Property.type";
 import PropertyComercialCard from "./PropertyComercialCard";
 import PropertyLivingCard from "./PropertyLivingCard";

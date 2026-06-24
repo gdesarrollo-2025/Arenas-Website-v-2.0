@@ -30,7 +30,7 @@ export default function InformationSection() {
                 </div>
             </div>
             <div className="hidden lg:block relative pt-5">
-                <Image src="/IA.webp" alt="margarita ia" fill className="object-scale-down" />
+                <Image src="/IA.webp" alt="margarita ia" fill className="object-scale-down" sizes=""/>
                 <div className="mx-auto w-2/3 h-[90%] bg-primary rounded-2xl" />
             </div>
         </div>

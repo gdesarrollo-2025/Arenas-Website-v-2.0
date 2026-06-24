@@ -6,6 +6,7 @@ import { Montserrat, Geist } from "next/font/google";
 import LayoutHeader from "@/shared/layout/header/LayoutHeader";
 import LayoutFooter from "@/shared/layout/footer/LayoutFooter";
 import { cn } from "@/shared/lib/utils";
+import Script from "next/script";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         {children}
         <LayoutFooter />
       </body>
+      <Script id="hs-script-loader" strategy="afterInteractive" src="//js-na1.hs-scripts.com/8765689.js" />
     </html>
   );
 }

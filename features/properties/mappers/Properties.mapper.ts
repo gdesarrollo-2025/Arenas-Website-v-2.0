@@ -1,3 +1,4 @@
+import { Capitalize } from "@/shared/utils/formatText";
 import { domusProperty } from "../dtos/domusProperty.dto";
 import { domusPropertyDetail } from "../dtos/domusPropertyDetail.dto";
 import { Property } from "../types/Property.type";
@@ -40,8 +41,8 @@ export function toProperty(p: domusProperty): Property {
         zone: p.zone,
         city_zone: p.city_zone,
         neighborhood: p.neighborhood,
-        type: p.type,
-        biz: p.biz,
+        type: Capitalize(p.type),
+        biz: Capitalize(p.biz),
         area_cons: p.area_cons,
         area_lot: p.area_lot,
         bedrooms: p.bedrooms,

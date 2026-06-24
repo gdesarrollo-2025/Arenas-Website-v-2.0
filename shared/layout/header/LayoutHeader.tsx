@@ -17,16 +17,16 @@ export default function LayoutHeader() {
         {
             content: <Link
                 className="rounded-full border-2 aspect-square h-8 p-1 flex "
-                href="/favorites"
+                href="/favoritos"
             >
                 <Favorites className="h-auto stroke-text" />
             </Link>
         },
         {
-            content: <a className="rounded-full border-2 aspect-square h-8 p-1 flex "
+            content: <Link className="rounded-full border-2 aspect-square h-8 p-1 flex "
                 href="/favorites">
                 <Pse className="h-auto stroke-text" />
-            </a>
+            </Link>
         }
     ]
 

@@ -33,7 +33,7 @@ export default function SearchComponent() {
                     className={`px-2 py-1 rounded-md text-text ${typeSearch == b ? "bg-primary text-white" : "hover:underline hover:underline-offset-2"} transition-all duration-300`}>{b}</button>
             ))}
         </div>
-        <div className="flex flex-col lg:flex-row gap-2 justify-between items-stretch h-full lg:h-12 border-2 p-1 ">
+        <div className="flex flex-col lg:flex-row gap-2 justify-between items-stretch h-full lg:h-12 p-1 ">
             <input value={phrase} onChange={(e) => setPhrase(e.target.value)} type="text" name="searchInput" id="searchInput"
                 className="grow h-auto px-4 py-2  border-2 border-accent rounded-[20px] "></input>
             <button onClick={submit} className=" h-10 lg:h-full aspect-square p-1 rounded-[20px] border-2 border-primary text-white bg-accent active:brightness-110 transition-all duration-300">

@@ -15,7 +15,7 @@ async function FeaturedPropertiesData({ query, view }: { query: SearchPropertyQu
             <div className="relative w-full h-full">
                 <Carrousel className="w-full" slideClassName="flex place-items-center py-5" modules={['navigation']} speed={300} spaceBetween={1} slidesPerView={1} loop={true} navigation={true} breakpoints={{ 1025: { slidesPerView: 2 } }}>
                     {data.properties.map((p, idx) => (
-                        <PropertyCardResolver key={idx} property={p} view={view} />
+                        <PropertyCardResolver key={p.code} property={p} view={view} />
                     ))}
                 </Carrousel>
             </div>

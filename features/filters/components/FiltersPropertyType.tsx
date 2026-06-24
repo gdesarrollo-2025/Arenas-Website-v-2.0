@@ -19,8 +19,8 @@ export default function FiltersPropertyType({options, value, onChange}:props) {
             <AccordionItem value="propertiesType">
                 <AccordionTrigger>Propiedades</AccordionTrigger>
                 <AccordionContent>
-                    {options.map((p, idx) => (
-                        <FieldLabel className="flex gap-2" key={idx}> 
+                    {options.map((p) => (
+                        <FieldLabel className="flex gap-2" key={p.code}> 
                         <Checkbox checked={selected.includes(String(p.code))}
                                     onCheckedChange={() => onChange(String(p.code))}/> {p.name} </FieldLabel>
                     ))}

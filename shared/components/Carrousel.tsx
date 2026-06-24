@@ -41,7 +41,7 @@ export default function Carrousel({ children, modules, speed, spaceBetween, slid
     const swiperRef = useRef<SwiperType | null>(null)
 
     return <>
-        <button onClick={() => swiperRef.current?.slidePrev()} className="absolute  h-auto aspect-square p-1 top-1/2 -left-5  rounded-full bg-accent z-10"><FaChevronLeft className="text-white size-8 aspect-square"/></button>
+        <button onClick={() => swiperRef.current?.slidePrev()} className="absolute  h-auto aspect-square p-1 top-1/2 -left-5  rounded-full bg-accent z-10"><FaChevronLeft className="text-white size-8 aspect-square" /></button>
         <Swiper
             modules={modulesApplied}
             speed={speed}
@@ -57,12 +57,14 @@ export default function Carrousel({ children, modules, speed, spaceBetween, slid
             className={className}
         >
             {Children.map(children, (child, idx) => (
-                <SwiperSlide key={idx} className={slideClassName}>
-                    {child}
+                <SwiperSlide key={idx} >
+                    <div className={slideClassName}>
+                        {child}
+                    </div>
                 </SwiperSlide>
             ))}
         </Swiper>
-        <button onClick={() => swiperRef.current?.slideNext()} className="absolute h-auto aspect-square p-1 top-1/2 -right-5  rounded-full bg-accent z-10"><FaChevronRight className="text-white size-8 aspect-square"/></button>
+        <button onClick={() => swiperRef.current?.slideNext()} className="absolute h-auto aspect-square p-1 top-1/2 -right-5  rounded-full bg-accent z-10"><FaChevronRight className="text-white size-8 aspect-square" /></button>
     </>
 
 }
