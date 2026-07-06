@@ -1,6 +1,6 @@
 import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.type";
 import { propertyTypes } from "@/shared/constants/properties.constants";
-import normalizeString from "../utils/normalize";
+import normalizeString from "../utils/normalizeString";
 import { cities } from "@/shared/constants/cities.constants";
 import { Neighborhoods } from "@/shared/constants/neighborhoods.constants";
 

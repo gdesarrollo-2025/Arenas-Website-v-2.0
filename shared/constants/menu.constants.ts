@@ -5,8 +5,8 @@ export const menu: MenuItem[] = [
         pages: [
             { name: "Vivienda", link: "/vivienda" },
             { name: "Comercio", link: "/comercio" },
-            { name: "Proyectos inmobiliarios", link: "" },
-            { name: "Arenas Boutique", link: "" },
+            { name: "Proyectos inmobiliarios", link: "/proyectos" },
+            { name: "Arenas Boutique", link: "https://arenasinmobiliaria.co/exclusivos/" },
         ]
     },
     {

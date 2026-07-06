@@ -28,7 +28,7 @@ export default function FocusSection() {
             {focusCard.map((f, idx) => (
                 <div key={idx} className="relative h-100 w-76 overflow-hidden shadow-lg/60 rounded-xl group transition-all duration-300">
                     <Image src={f.image} alt={`Imagen para ${f.title}`} fill className="h-4/5 object-cover" sizes="304px" />
-                    <div className="absolute overflow-hidden bottom-0 place-items-center place-content-center bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
+                    <div className="absolute flex items-center justify-center overflow-hidden bottom-0 bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
                         <h3 className="text-center">{f.title}</h3>
                     </div>
                 </div>
@@ -39,8 +39,8 @@ export default function FocusSection() {
                 {focusCard.map((f, idx) => (
                     <div key={idx} className="relative h-100 w-80 overflow-hidden shadow-lg/60 rounded-xl group transition-all duration-300">
                         <Image src={f.image} alt={`Imagen para ${f.title}`} fill className="h-4/5 object-cover" preload={idx <= 1 } sizes="(min-width: 426px) 45vw,90vw"/>
-                        <div className="absolute overflow-hidden bottom-0 place-items-center place-content-center bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
-                            <h3>{f.title}</h3>
+                        <div className="absolute flex items-center justify-center overflow-hidden bottom-0 bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
+                            <h3 className="text-center">{f.title}</h3>
                         </div>
                     </div>
                 ))}

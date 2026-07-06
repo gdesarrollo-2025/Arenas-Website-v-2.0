@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroSection from "../_sections/HeroSection";
+import HeroSearchSection from "../_sections/HeroSearchSection";
 import SearchSection from "../_sections/SearchSection";
 import ComercialFiltersPanel from "@/features/filters/components/ComercialFiltersPanel";
 import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.type";
@@ -12,7 +12,7 @@ export default function Page() {
     if (!query.page) query.page = 1;
     
     return <div className="flex flex-col gap-5">
-        <HeroSection title="comercio" image="/Comercial.webp" />
+        <HeroSearchSection title="comercio" image="/Comercial.webp" />
         <SearchSection filtersPanel={<ComercialFiltersPanel query={query} />}>
             <PropertyList query={query} />
         </SearchSection>

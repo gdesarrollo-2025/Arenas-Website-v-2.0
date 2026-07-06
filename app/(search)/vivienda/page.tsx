@@ -1,4 +1,4 @@
-import HeroSection from "../_sections/HeroSection";
+import HeroSearchSection from "../_sections/HeroSearchSection";
 import SearchSection from "../_sections/SearchSection";
 import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.type";
 import FeatureSection from "../_sections/FeatureSection";
@@ -11,7 +11,7 @@ export default function Page() {
     if (!query.page) query.page = 1;
     
     return <div className="flex flex-col gap-5">
-        <HeroSection title="vivienda" image="/hero-house..webp" />
+        <HeroSearchSection title="vivienda" image="/hero-house.webp" />
         <SearchSection filtersPanel={<ViviendaFiltersPanel query={query} />}>
             <PropertyList query={query} />
         </SearchSection>
