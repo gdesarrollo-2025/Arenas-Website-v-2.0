@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"
 import { FaBath, FaBed, FaRulerCombined } from "react-icons/fa6";
 import { FaParking } from "react-icons/fa";
 
@@ -11,7 +12,7 @@ import FavoriteButton from "./FavoriteButton";
 
 export default function PropertyLivingCard({ property, location, title }: { property: Property, location: string, title: string }) {
 
-    return <div className="flex flex-col h-87.5 w-60 justify-between overflow-hidden shadow-lg/40  rounded-xl ">
+    return <Link href={`/propiedad/${property.code}`} className="flex flex-col h-87.5 w-60 justify-between overflow-hidden shadow-lg/40  rounded-xl ">
         <div className="relative h-1/2 w-full">
             <FavoriteButton p={property}/>
             <Image src={property.image} alt="propiedad" fill className="object-cover " sizes="240px" />
@@ -38,5 +39,5 @@ export default function PropertyLivingCard({ property, location, title }: { prop
                 <span className="flex items-center gap-2 "><FaParking />{property.parking}</span>
             </div>
         </div>
-    </div>
+    </Link>
 }

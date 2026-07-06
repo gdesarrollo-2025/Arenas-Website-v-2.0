@@ -1,10 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaBath, FaBed, FaRulerCombined, FaSquareParking } from "react-icons/fa6";
 import { Property } from "../types/Property.type";
 import formatPrice from "@/shared/utils/formatPrice";
+import FavoriteButton from "./FavoriteButton";
 export default function PropertyComercialCard({ property, location, title }: { property: Property, location: string, title: string }) {
-    return <div className="relative flex flex-col justify-end h-72.5 w-full sm:w-92.5  shadow-lg/40  rounded-xl overflow-hidden ">
-        <Image src={property.image} alt="propiedad" fill className="object-cover" sizes="370px"/>
+    return <Link href={`/propiedad/${property.code}`}className="relative flex flex-col justify-end h-72.5 w-full sm:w-92.5  shadow-lg/40  rounded-xl overflow-hidden ">
+        <Image src={property.image} alt="propiedad" fill className="object-cover" sizes="370px" />
+        <FavoriteButton p={property} />
         <div className="absolute flex items-center justify-between bottom-0  left-2 right-2 mb-2  bg-background/60 backdrop-blur-xs p-2 rounded-lg ">
             <div>
                 <p className="font-bold">Cod. {property.code}</p>
@@ -32,5 +35,5 @@ export default function PropertyComercialCard({ property, location, title }: { p
                 )}
             </div>
         </div>
-    </div>
+    </Link>
 }
