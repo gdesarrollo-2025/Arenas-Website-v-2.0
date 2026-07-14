@@ -1,4 +1,9 @@
 
+export type amenitie = {
+    id: number,
+    name: string
+}
+
 export type PropertyDetail = {
     id: number,
     code: number,
@@ -14,6 +19,7 @@ export type PropertyDetail = {
     bedrooms: number,
     bathrooms: number,
     stratum: number,
+    build_year: number,
     price_format: string,
     administration: number,
     description: string,
@@ -21,5 +27,5 @@ export type PropertyDetail = {
     longitude: string,
     images: string[],
     images360: string[],
-    amenities: string[],
+    amenities: amenitie[],
 }

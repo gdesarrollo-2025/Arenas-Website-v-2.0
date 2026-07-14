@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", montserrat.variable, "font-sans", geist.variable)}
+      className={cn("h-full scroll-smooth", "antialiased", montserrat.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col justify-between gap-5">
+      <body className="min-h-full flex flex-col justify-between">
         <LayoutHeader self-start/>
         {children}
         <LayoutFooter />

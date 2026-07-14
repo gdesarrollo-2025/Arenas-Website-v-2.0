@@ -2,6 +2,11 @@ import { getPropertyByID } from "@/features/properties/services/properties.servi
 import buildSlug from "@/shared/utils/buildSlug";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
+import MainInfoSection from "./_sections/MainInfoSection";
+import NavDetailsSection from "./_sections/NavDetailsSection";
+import DetailsSection from "./_sections/DetailsSection";
+import DescriptionSection from "./_sections/DescriptionSection";
+import LocationSection from "./_sections/LocationSection";
 
 type props = {
     params: Promise<{
@@ -9,6 +14,7 @@ type props = {
         slug?: string[];
     }>
 }
+
 export async function generateMetadata({ params }: props): Promise<Metadata> {
     const { codigo } = await params;
     const propiedad = await getPropertyByID(codigo)
@@ -28,6 +34,7 @@ export async function generateMetadata({ params }: props): Promise<Metadata> {
         }
     }
 }
+
 export default async function Page({ params }: props) {
 
     const { codigo, slug = [] } = await params;
@@ -41,7 +48,41 @@ export default async function Page({ params }: props) {
     if (currentSlugPath !== canonicalSlugPath) {
         redirect(`/propiedad/${codigo}/${canonicalSlugPath}`)
     }
-    return <div className="mt-[15vh]">
-        {JSON.stringify(propiedad)}
+
+    return <div className="bg-secondary/10">
+        <div className="relative grid grid-cols-[70%_1fr] pt-[15vh] gap-3 max-w-[90vw] w-full mx-auto ">
+            <div>
+                <MainInfoSection p={propiedad} />
+                <NavDetailsSection />
+                <DetailsSection areacons={propiedad.area_cons} bedrooms={propiedad.bedrooms} bathrooms={propiedad.bathrooms} stratum={propiedad.stratum} buildyear={propiedad.build_year} />
+                <DescriptionSection d={propiedad.description} c={propiedad.amenities} />
+                <LocationSection lat={propiedad.latitude} lon={propiedad.longitude} />
+            </div>
+            <aside className="sticky top-[15vh] h-fit shadow-md/50 p-3 bg-white rounded-[20px]">
+                <div className="flex flex-col gap-4">
+                    <div>
+                        <p className="font-bold">COD. {propiedad.code}</p>
+                        <div className="flex flex-col gap">
+                            <span className="text-xl">Valor  {propiedad.biz == "VENTA" ? `de ${propiedad.biz.toLowerCase()}` : ` del ${propiedad.biz.toLowerCase()}`}</span>
+                            <span className="font-semibold text-3xl">{propiedad.price_format}</span>
+                        </div>
+                        {(propiedad.administration !== 0) &&
+                            (
+                                <div>
+                                    <span className="text-xl">Administración</span>
+                                    <span className="text-3xl font-semibold">{propiedad.administration}</span>
+                                </div>
+                            )}
+                    </div>
+                    <div >
+                        <p className="text-2xl font-bold text-center">¿Deseas más información de este inmueble?</p>
+                        <div className="flex flex-col gap-2">
+                            <button type="button" className="bg-accent text-white hover rounded-md px-2 py-1">Chatear con margarita</button>
+                            <button type="button" className="bg-secondary/10 text-black rounded-md px-2 py-1">Agendar una visita</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </div>
 }

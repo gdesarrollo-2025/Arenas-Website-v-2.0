@@ -27,6 +27,7 @@ export type domusPropertyDetail = {
     bedrooms: number,
     bathrooms: number,
     stratum: number,
+    build_year: number,
     price_format: string,
     administration: number,
     description: string,

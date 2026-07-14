@@ -21,6 +21,7 @@ export function toPropertyDetail(p: domusPropertyDetail): PropertyDetail {
         bedrooms: p.bedrooms,
         bathrooms: p.bathrooms,
         stratum: p.stratum,
+        build_year: p.build_year,
         price_format: p.price_format,
         administration: p.administration,
         description: p.description,
@@ -28,7 +29,7 @@ export function toPropertyDetail(p: domusPropertyDetail): PropertyDetail {
         longitude: p.longitude,
         images: p.images.map((i) => i.imageurl),
         images360: p.images.map((i) => i.imageurl),
-        amenities: p.amenities.map((a) => a.name),
+        amenities: p.amenities.map((a) => ({id: a.id, name:a.name})),
     }
 }
 
