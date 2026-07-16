@@ -28,7 +28,7 @@ export function toPropertyDetail(p: domusPropertyDetail): PropertyDetail {
         latitude: p.latitude,
         longitude: p.longitude,
         images: p.images.map((i) => i.imageurl),
-        images360: p.images.map((i) => i.imageurl),
+        images360: p.images360.map((i) => i.imageurl),
         amenities: p.amenities.map((a) => ({id: a.id, name:a.name})),
     }
 }

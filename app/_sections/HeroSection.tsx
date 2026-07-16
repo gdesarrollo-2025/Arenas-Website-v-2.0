@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image";
-import Search from "@/public/Search.svg";
 import phraseToQuery from "@/features/search/parsers/phraseToQuery";
 import { useState } from "react";
 import useSearch from "@/features/search/hooks/useSearch";

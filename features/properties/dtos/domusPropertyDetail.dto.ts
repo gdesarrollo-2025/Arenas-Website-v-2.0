@@ -32,8 +32,8 @@ export type domusPropertyDetail = {
     administration: number,
     description: string,
     parking: string,
-    latitude: string,
-    longitude: string,
+    latitude: number,
+    longitude: number,
     images: Images[],
     images360: Images[]
     amenities: amenity[]

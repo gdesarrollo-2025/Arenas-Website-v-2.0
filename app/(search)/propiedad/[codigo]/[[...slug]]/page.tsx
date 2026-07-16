@@ -7,6 +7,7 @@ import NavDetailsSection from "./_sections/NavDetailsSection";
 import DetailsSection from "./_sections/DetailsSection";
 import DescriptionSection from "./_sections/DescriptionSection";
 import LocationSection from "./_sections/LocationSection";
+import formatPrice from "@/shared/utils/formatPrice";
 
 type props = {
     params: Promise<{
@@ -51,26 +52,26 @@ export default async function Page({ params }: props) {
 
     return <div className="bg-secondary/10">
         <div className="relative grid grid-cols-[70%_1fr] pt-[15vh] gap-3 max-w-[90vw] w-full mx-auto ">
-            <div>
+            <div className="flex flex-col gap-5  border-2 border-accent">
                 <MainInfoSection p={propiedad} />
                 <NavDetailsSection />
                 <DetailsSection areacons={propiedad.area_cons} bedrooms={propiedad.bedrooms} bathrooms={propiedad.bathrooms} stratum={propiedad.stratum} buildyear={propiedad.build_year} />
                 <DescriptionSection d={propiedad.description} c={propiedad.amenities} />
                 <LocationSection lat={propiedad.latitude} lon={propiedad.longitude} />
             </div>
-            <aside className="sticky top-[15vh] h-fit shadow-md/50 p-3 bg-white rounded-[20px]">
+            <aside className="border-2 border-green-500 sticky top-[15vh] h-fit shadow-md/50 px-5 py-3 bg-white rounded-[20px]">
                 <div className="flex flex-col gap-4">
                     <div>
                         <p className="font-bold">COD. {propiedad.code}</p>
                         <div className="flex flex-col gap">
                             <span className="text-xl">Valor  {propiedad.biz == "VENTA" ? `de ${propiedad.biz.toLowerCase()}` : ` del ${propiedad.biz.toLowerCase()}`}</span>
-                            <span className="font-semibold text-3xl">{propiedad.price_format}</span>
+                            <span className="font-semibold text-3xl">{propiedad.price_format[0] !="$" ? `$ ${propiedad.price_format}` : propiedad.price_format}</span>
                         </div>
                         {(propiedad.administration !== 0) &&
                             (
-                                <div>
+                                <div className="flex flex-col gap">
                                     <span className="text-xl">Administración</span>
-                                    <span className="text-3xl font-semibold">{propiedad.administration}</span>
+                                    <span className="text-3xl font-semibold">{formatPrice(propiedad.administration)}</span>
                                 </div>
                             )}
                     </div>

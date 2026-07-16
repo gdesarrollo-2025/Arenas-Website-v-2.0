@@ -4,16 +4,20 @@ import { useState } from "react";
 import Image from "next/image";
 
 import Carrousel from "@/shared/components/Carrousel";
+import Visor360 from "@/shared/components/Visor360";
 
 export default function MainInfoSection({ p }: { p: PropertyDetail }) {
 
     const [display, setDisplay] = useState("images");
 
-    return <section className="max-w-[90vw] h-fit mx-auto">
+    console.log(p.images360)
+    return <section className="w-full h-fit mx-auto">
         <div className="flex flex-col gap-3">
             <div className="flex justify-between">
                 <button type="button" onClick={() => setDisplay("images")} className={`${display == "images" ? "bg-accent text-white font-semibold" : " bg-white text-black "} w-1/3 px-2 py-1 rounded-md transition-all duration-500`}>Ver imagenes</button>
-                <button type="button" onClick={() => setDisplay("360visor")} className={`${display == "360visor" ? "bg-accent text-white font-semibold" : " bg-white text-black "} w-1/3 px-2 py-1 rounded-md transition-all duration-500`}> Ver imagenes 360°</button>
+                {(p.images360.length > 0) && (
+                    <button type="button" onClick={() => setDisplay("360visor")} className={`${display == "360visor" ? "bg-accent text-white font-semibold" : " bg-white text-black "} w-1/3 px-2 py-1 rounded-md transition-all duration-500`}> Ver imagenes 360°</button>
+                )}
             </div>
             {display == "images" && (
                 <div className="relative w-full h-full aspect-video  ">
@@ -25,8 +29,8 @@ export default function MainInfoSection({ p }: { p: PropertyDetail }) {
                 </div>
             )}
             {display == "360visor" && (
-                <div>
-                </div>
+
+                <Visor360 images360={p.images360} />
             )}
 
         </div>
