@@ -8,6 +8,7 @@ import DetailsSection from "./_sections/DetailsSection";
 import DescriptionSection from "./_sections/DescriptionSection";
 import LocationSection from "./_sections/LocationSection";
 import formatPrice from "@/shared/utils/formatPrice";
+import { Capitalize } from "@/shared/utils/formatText";
 
 type props = {
     params: Promise<{
@@ -23,14 +24,14 @@ export async function generateMetadata({ params }: props): Promise<Metadata> {
     const cannonicalSlug = buildSlug({ biz: propiedad.biz, type: propiedad.type, city: propiedad.city, neighborhood: propiedad.neighborhood })
     const cannonicalUrl = `http://website.arenassa.com/propiedad/${codigo}/${cannonicalSlug.join("/")}`;
     return {
-        title: `${propiedad.type} en ${propiedad.biz} ubicado en ${propiedad.neighborhood}, ${propiedad.city}`,
+        title: `${Capitalize(propiedad.type)} en ${Capitalize(propiedad.biz)} ubicado en ${propiedad.neighborhood}, ${propiedad.city}`,
         description: propiedad.description,
         alternates: {
             canonical: cannonicalUrl,
         },
         openGraph: {
-            title: `${propiedad.type} en ${propiedad.biz} - ${propiedad.neighborhood}, ${propiedad.city}`,
-            images: `${propiedad.images[0]}}`,
+            title: `${Capitalize(propiedad.type)} en ${Capitalize(propiedad.biz)} - ${propiedad.neighborhood}, ${propiedad.city}`,
+            images: `${propiedad.images[0]}`,
             url: cannonicalUrl
         }
     }
