@@ -9,6 +9,7 @@ import DescriptionSection from "./_sections/DescriptionSection";
 import LocationSection from "./_sections/LocationSection";
 import formatPrice from "@/shared/utils/formatPrice";
 import { Capitalize } from "@/shared/utils/formatText";
+import PriceInformationSection from "./_sections/PriceInformationSection";
 
 type props = {
     params: Promise<{
@@ -60,31 +61,7 @@ export default async function Page({ params }: props) {
                 <DescriptionSection d={propiedad.description} c={propiedad.amenities} />
                 <LocationSection lat={propiedad.latitude} lon={propiedad.longitude} />
             </div>
-            <aside className="border-2 border-green-500 sticky top-[15vh] h-fit shadow-md/50 px-5 py-3 bg-white rounded-[20px]">
-                <div className="flex flex-col gap-4">
-                    <div>
-                        <p className="font-bold">COD. {propiedad.code}</p>
-                        <div className="flex flex-col gap">
-                            <span className="text-xl">Valor  {propiedad.biz == "VENTA" ? `de ${propiedad.biz.toLowerCase()}` : ` del ${propiedad.biz.toLowerCase()}`}</span>
-                            <span className="font-semibold text-3xl">{propiedad.price_format[0] !="$" ? `$ ${propiedad.price_format}` : propiedad.price_format}</span>
-                        </div>
-                        {(propiedad.administration !== 0) &&
-                            (
-                                <div className="flex flex-col gap">
-                                    <span className="text-xl">Administración</span>
-                                    <span className="text-3xl font-semibold">{formatPrice(propiedad.administration)}</span>
-                                </div>
-                            )}
-                    </div>
-                    <div >
-                        <p className="text-2xl font-bold text-center">¿Deseas más información de este inmueble?</p>
-                        <div className="flex flex-col gap-2">
-                            <button type="button" className="bg-accent text-white hover rounded-md px-2 py-1">Chatear con margarita</button>
-                            <button type="button" className="bg-secondary/10 text-black rounded-md px-2 py-1">Agendar una visita</button>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+            <PriceInformationSection code={propiedad.code} biz={propiedad.biz} price={propiedad.price_format} administration={propiedad.administration}/>
         </div>
     </div>
 }
