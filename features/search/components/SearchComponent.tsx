@@ -4,6 +4,7 @@ import useSearch from "@/features/search/hooks/useSearch";
 import Search from "@/public/Search.svg";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 import phraseToQuery from "@/features/search/parsers/phraseToQuery";
@@ -11,6 +12,7 @@ import phraseToQuery from "@/features/search/parsers/phraseToQuery";
 const buttons = ["Arriendo", "Venta", "Codigo"]
 export default function SearchComponent() {
 
+    const router = useRouter();
     const [phrase, setPhrase] = useState('');
 
     const [typeSearch, settypeSearch] = useState("Arriendo");
@@ -19,7 +21,7 @@ export default function SearchComponent() {
 
     const submit = async () => {
         if (typeSearch == "Codigo") {
-            console.log("es busqueda por codigo")
+            router.push(`/propiedad/${phrase}`)
         } else {
             const query = phraseToQuery(phrase)
             query.biz = typeSearch == "Arriendo" ? "1" : "2"            
