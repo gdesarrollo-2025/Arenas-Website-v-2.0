@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { branch } from "../type/location.type";
 import { schedule } from "../type/schedule.type";
+import { FaChevronDown } from "react-icons/fa6";
 function isBranchArray(
     items: branch[] | schedule[]
 ): items is branch[] {
@@ -12,7 +13,7 @@ export default function FooterDropdown({ title, items }: { title: string, items:
 
     if (isBranchArray(items)) {
         return <div className="">
-            <button className="text-accent font-semibold" onClick={() => setState(!state)}>{title}</button>
+            <button className="flex items-center gap-1 text-accent font-semibold" onClick={() => setState(!state)}>{title} <FaChevronDown className={`${ state ? "rotate-0" :"rotate-180"} text-inherit   transition-all duration-300 "`} /></button>
             <ul className={`list-disc list-inside flex flex-col gap-2 overflow-hidden ${state ? "opacity-100 max-h-90 " : "opacity-0 max-h-0"}  transition-all duration-300`}>{items.map((b, idx) => (
                 <li key={idx} className="flex flex-col">
                     <p className="font-semibold">{b.name}</p>

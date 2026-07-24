@@ -13,7 +13,7 @@ async function ReviewFetch() {
     const data = await getReviews();
     const reviews = randomizer(data, 10);
 
-    return <div className="relative w-full h-fit">
+    return <div className="relative container-small h-fit">
         <Carrousel className="w-full h-full" slideClassName="flex place-items-center h-full px-1 py-5" modules={["navigation", "autoplay"]} speed={300} slidesPerView={1} spaceBetween={20} navigation={true} loop={true} autoplay={{ delay: 10000 }} breakpoints={{ 426: { slidesPerView: 3 }, 769: { slidesPerView: 4 }, 1025: { slidesPerView: 5 } }}>
             {reviews.map((r: any) => (
                 <div key={r.id} className="flex flex-col justify-between  w-full min-h-60 h-80 p-5 bg-background rounded-lg shadow-md/50">
@@ -58,7 +58,7 @@ function ReviewSkeleton() {
     </div>
 }
 export default function ReviewSection() {
-    return <section className=" relative  max-w-[90vw] mx-auto  h-full  flex flex-col gap-2 justify-center my-5 ">
+    return <section className=" relative  max-w-[90vw] mx-auto  h-full  flex flex-col gap-2 justify-center  ">
         <div className="relative flex flex-col justify-evenly h-full max-w-[85vw] gap-5 mx-auto z-10">
             <div className="w-1/2">
                 <h2 className="font-semibold text-balance ">Nuestros cliente son nuestra mejor referencia</h2>

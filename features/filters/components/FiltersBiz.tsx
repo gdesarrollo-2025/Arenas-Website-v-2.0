@@ -10,7 +10,7 @@ type props = {
 export default function FiltersBiz({ value, onChange }: props) {
     return <Field>
         <FieldLegend>Gestion</FieldLegend>
-        <Select value={value} onValueChange={(value) => {
+        <Select value={BizTypes.find((b) => (b.code.toString() == value))?.name} onValueChange={(value) => {
             if (value !== null) {
                 onChange(value);
             }
@@ -20,7 +20,7 @@ export default function FiltersBiz({ value, onChange }: props) {
             </SelectTrigger>
             <SelectContent>
                 {BizTypes.map((b) => (
-                    <SelectItem key={b.code} value={b.code} >{b.name}</SelectItem>
+                    <SelectItem key={b.code} value={b.code.toString()}  >{b.name}</SelectItem>
                 ))}
             </SelectContent>
         </Select>

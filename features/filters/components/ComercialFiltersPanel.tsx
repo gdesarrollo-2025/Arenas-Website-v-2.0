@@ -5,7 +5,7 @@ import useFilters from "../hooks/useFilters";
 import FiltersPropertyType from "./FiltersPropertyType";
 import FiltersBiz from "./FiltersBiz";
 import FiltersArea from "./FiltersArea";
-import FiltersPrice from "./filtersPrice";
+import FiltersPrice from "./FiltersPrice";
 import { propertyComercial } from "@/shared/constants/properties.constants";
 
 type props = {

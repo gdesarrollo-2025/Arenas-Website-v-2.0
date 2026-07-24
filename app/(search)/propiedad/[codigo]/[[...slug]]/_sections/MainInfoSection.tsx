@@ -21,7 +21,7 @@ export default function MainInfoSection({ p }: { p: PropertyDetail }) {
             </div>
             {display == "images" && (
                 <div className="relative w-full h-full aspect-video  ">
-                    <Carrousel className="w-full h-full overflow-hidden rounded-[20px]" modules={['autoplay']} speed={200} spaceBetween={10} slidesPerView={1} loop navigation>
+                    <Carrousel className="relative w-full h-full overflow-hidden rounded-[20px]"  slideClassName="relative" modules={['autoplay']} speed={200} spaceBetween={10} slidesPerView={1} loop navigation>
                         {p.images.map((i, idx) => (
                             <Image src={i} alt={`Imagen ${i}`} fill className="object-cover aspect-video" />
                         ))}

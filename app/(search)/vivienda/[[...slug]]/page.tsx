@@ -1,7 +1,7 @@
-import HeroSearchSection from "../_sections/HeroSearchSection";
-import SearchSection from "../_sections/SearchSection";
+import HeroSearchSection from "../../_sections/HeroSearchSection";
+import SearchSection from "../../_sections/SearchSection";
 import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.type";
-import FeatureSection from "../_sections/FeatureSection";
+import FeatureSection from "../../_sections/FeatureSection";
 import PropertyList from "@/features/properties/components/PropertyList";
 import ViviendaFiltersPanel from "@/features/filters/components/ViviendaFiltersPanel";
 

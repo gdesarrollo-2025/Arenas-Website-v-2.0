@@ -16,7 +16,7 @@ export default function HeroSection() {
         await search(query)
     }
 
-    return <section className="relative flex lg:justify-end items-center justify-center max-w-[90vw] h-[80vh] mx-auto rounded-[20px] overflow-hidden">
+    return <section className="relative flex lg:justify-end items-center justify-center container-large  w-full h-[80vh]  rounded-[20px] overflow-hidden">
         <div className="relative w-full lg:w-1/2 h-full rounded-[20px] overflow-hidden">
             <Image src={"/hero-house.webp"} alt="Sección principal filtros arenas inmobiliaria" fill className="object-cover" preload={true} sizes="(min-width: 1025px) 45vw, 90vw " />
         </div>

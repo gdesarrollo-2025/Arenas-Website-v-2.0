@@ -16,6 +16,9 @@ type props = {
     searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
+export async function generateMetadata({params}:props){
+
+}
 export default async function Page({ params, searchParams }: props) {
 
     const [{ slug }, queryParams] = await Promise.all([params, searchParams])

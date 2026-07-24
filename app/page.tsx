@@ -7,7 +7,7 @@ import FocusSection from "./_sections/FocusSection";
 import ServicesSection from "./_sections/ServicesSection";
 import PropertiesSection from "./_sections/PropertiesSection";
 export default function Home() {
-  return <div className="mt-[15vh] overflow-hidden">
+  return <div className="flex flex-col gap-24 mb-24 mt-[15vh] overflow-hidden">
     <HeroSection />
     <FocusSection />
     <InformationSection />

@@ -23,13 +23,13 @@ const focusCard = [
 
 ]
 export default function FocusSection() {
-    return <section className="w-full max-w-[90vw] mx-auto my-5 gap-20">
+    return <section className="container-small my-5 gap-20">
         <div className=" hidden xl:flex justify-center  gap-2">
             {focusCard.map((f, idx) => (
                 <div key={idx} className="relative h-100 w-76 overflow-hidden shadow-lg/60 rounded-xl group transition-all duration-300">
                     <Image src={f.image} alt={`Imagen para ${f.title}`} fill className="h-4/5 object-cover" sizes="304px" />
                     <div className="absolute flex items-center justify-center overflow-hidden bottom-0 bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
-                        <h3 className="text-center">{f.title}</h3>
+                        <h4 className="text-center font-bold">{f.title}</h4>
                     </div>
                 </div>
             ))}

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 
 export default function InformationSection() {
-    return <section className="max-w-[90vw] h-full lg:h-[80vh] mx-auto my-10 ">
+    return <section className="container-medium h-full lg:h-[80vh]  bg-secondary/10 p-">
         <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-[3fr_2fr] lg:grid-rows-[auto_1fr]">
             <h2 className="font-bold w-full">Confia en los verdaderos agentes inmobiliarios</h2>
             <div className=" hidden lg:flex lg:flex-col justify-evenly">
@@ -29,9 +29,9 @@ export default function InformationSection() {
                     <p>Salas de negocio</p>
                 </div>
             </div>
-            <div className="hidden lg:block relative pt-5">
-                <Image src="/IA.webp" alt="margarita ia" fill className="object-scale-down" sizes=""/>
-                <div className="mx-auto w-2/3 h-[90%] bg-primary rounded-2xl" />
+            <div className="hidden lg:block relative ">
+                <Image src="/Ia_landingpage.webp" alt="margarita ia" fill className="object-scale-down" sizes="36vw"/>
+                <div className="absolute -z-10 bottom-12 inset-x-1/5 w-2/3 h-auto aspect-square bg-primary rounded-full" />
             </div>
         </div>
     </section>

@@ -57,34 +57,38 @@ function CarrouselSkeleton() {
 export default async function PropertiesSection() {
 
 
-    return <section className="flex flex-col gap-2 max-w-[90vw] h-fit my-5 mx-auto ">
-        <div>
-            <h2 className="w-1/2 mx-auto text-center">Arriendo</h2>
-            <hr className="border w-1/2 mx-auto"/>
-        </div>
-        <div className="flex flex-col lg:flex-row items-start justify-between ">
-            <h3 className="font-semibold">Descubre el inmueble perfecto para ti</h3>
-            <div className="flex flex-col gap-4 w-full lg:w-1/2">
-                <p>Encuentra la propiedad ideal para ti, hemos seleccionado estos inmuebles por sus características, precio y ubicación, quizás puedan interesarte.</p>
-                <p>Si no se ajustan a tu necesidad ingresa en el buscador en la parte superior de este sitio web</p>
+    return <section className="flex flex-col gap-24 container-small h-fit ">
+        <div className="flex flex-col gap-7">
+            <div>
+                <h2 className="w-1/2 mx-auto text-center">Arriendo</h2>
+                <hr className="border w-1/2 mx-auto" />
             </div>
-        </div>
-        <Suspense fallback={<CarrouselSkeleton />}>
-            <CarrouselRentProperties />
-        </Suspense>
-        <div>
-            <h2 className="w-1/2 mx-auto text-center">Venta</h2>
-            <hr className="border w-1/2 mx-auto"/>
-        </div>
-        <div className="flex flex-col lg:flex-row items-start justify-between ">
-            <h3 className="font-semibold">¡Una oportunidad que no da espera!</h3>
-            <div className="flex flex-col gap-4 w-full lg:w-1/2">
-                <p>Encuentra la propiedad ideal para ti, hemos seleccionado estos inmuebles por sus características, precio y ubicación, quizás puedan interesarte.</p>
-                <p>Si no se ajustan a tu necesidad ingresa en el buscador en la parte superior de este sitio web</p>
+            <div className="flex flex-col lg:flex-row items-start justify-between ">
+                <h3 className="font-semibold">Descubre el inmueble perfecto para ti</h3>
+                <div className="flex flex-col gap-4 w-full lg:w-1/2">
+                    <p>Encuentra la propiedad ideal para ti, hemos seleccionado estos inmuebles por sus características, precio y ubicación, quizás puedan interesarte.</p>
+                    <p>Si no se ajustan a tu necesidad ingresa en el buscador en la parte superior de este sitio web</p>
+                </div>
             </div>
+            <Suspense fallback={<CarrouselSkeleton />}>
+                <CarrouselRentProperties />
+            </Suspense>
         </div>
-        <Suspense fallback={<CarrouselSkeleton />}>
-            <CarrouselSellProperties />
-        </Suspense>
+        <div className="flex flex-col gap-7">
+            <div>
+                <h2 className="w-1/2 mx-auto text-center">Venta</h2>
+                <hr className="border w-1/2 mx-auto" />
+            </div>
+            <div className="flex flex-col lg:flex-row items-start justify-between ">
+                <h3 className="font-semibold">¡Una oportunidad que no da espera!</h3>
+                <div className="flex flex-col gap-4 w-full lg:w-1/2">
+                    <p>Encuentra la propiedad ideal para ti, hemos seleccionado estos inmuebles por sus características, precio y ubicación, quizás puedan interesarte.</p>
+                    <p>Si no se ajustan a tu necesidad ingresa en el buscador en la parte superior de este sitio web</p>
+                </div>
+            </div>
+            <Suspense fallback={<CarrouselSkeleton />}>
+                <CarrouselSellProperties />
+            </Suspense>
+        </div>
     </section>
 }

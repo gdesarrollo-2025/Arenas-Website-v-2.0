@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function BlogsSection() {
-    return <div className="max-w-[90vw] w-full mx-auto grid grid-cols-3 h-[75svh] gap-5 bg-secondary/10 rounded-[20px] p-10 "  >
+    return <div className="max-w-[90vw] w-full mx-auto grid grid-cols-3 h-[75dvh] gap-5 bg-secondary/10 rounded-[20px] p-10 "  >
         <div className="flex flex-col gap-10 items-start justify-between">
             <div>
                 <h2>Blog</h2>
@@ -14,7 +14,7 @@ export default function BlogsSection() {
             </div>
         </div>
         <div className="relative overflow-hidden rounded-[20px]">
-            <Image src="/Blog.webp" alt="Blog " fill/>
+            <Image src="/Blog.webp" alt="Blog " fill className="object-cover"/>
         </div>
         <div className="flex flex-col gap-5 justify-end ">
             <p>Para contratos de arrendamiento de vivienda suscritos a partir del 10 de julio de 2003:</p>

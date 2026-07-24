@@ -5,24 +5,30 @@ import FiltersBiz from "./FiltersBiz"
 import FiltersBathrooms from "./FiltersBathrooms"
 import FiltersBedrooms from "./FiltersBedrooms"
 import FiltersArea from "./FiltersArea"
-import FiltersPrice from "./filtersPrice"
+import FiltersPrice from "./FiltersPrice"
 import FiltersButtons from "./FiltersButtons"
 import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.type"
 import { propertyVivienda } from "@/shared/constants/properties.constants"
 import useFilters from "../hooks/useFilters"
+import FiltersCity from "./FiltersCity"
+import FiltersNeighborhood from "./FiltersNeighborhood"
 
 type props = {
     query: SearchPropertyQuery;
 }
 export default function ViviendaFiltersPanel({ query }: props) {
 
-    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query});
+    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query });
 
     const bedroomsArray = finalQuery.bedrooms?.split(",").filter(Boolean) ?? [];
     const bathroomsArray = finalQuery.bathrooms?.split(",").filter(Boolean) ?? [];
 
 
     return <FieldGroup className="flex flex-col w-full h-full justify-evenly">
+        <FiltersCity value={finalQuery.location ?? ""} onChange={(value) => onChangeSelect("location", value)} />
+        <FieldSeparator />
+        <FiltersNeighborhood value={finalQuery.neighborhood ?? ""} city={finalQuery.location ?? ""} onChange={(value) => onChangeSelect("neighborhood", value)} />
+        <FieldSeparator />
         <FiltersPropertyType options={propertyVivienda} value={finalQuery.property ?? ""} onChange={(code) => onChangeCheckbox("property", code)} />
         <FieldSeparator />
         <FiltersBiz value={finalQuery.biz ?? ""} onChange={(value) => onChangeSelect("biz", value)} />

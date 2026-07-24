@@ -6,7 +6,7 @@ export default function useSearch(){
     const router = useRouter();
 
     const search = async ( query: SearchPropertyQuery ) => {
-        console.log(queryToUrl(query))
+        console.log(query)
         return router.push(queryToUrl(query))
     } 
 
