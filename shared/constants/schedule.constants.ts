@@ -1,4 +1,4 @@
-import { schedule } from "../type/schedule.type";
+import { schedule } from "../types/schedule.type";
 
 export const schedules: schedule[] = [
     {

@@ -5,35 +5,55 @@ import Image from "next/image";
 
 import Carrousel from "@/shared/components/Carrousel";
 import Visor360 from "@/shared/components/Visor360";
+import { Capitalize } from "@/shared/utils/formatText";
 
 export default function MainInfoSection({ p }: { p: PropertyDetail }) {
 
     const [display, setDisplay] = useState("images");
 
-    console.log(p.images360)
-    return <section className="w-full h-fit mx-auto">
-        <div className="flex flex-col gap-3">
-            <div className="flex justify-between">
-                <button type="button" onClick={() => setDisplay("images")} className={`${display == "images" ? "bg-accent text-white font-semibold" : " bg-white text-black "} w-1/3 px-2 py-1 rounded-md transition-all duration-500`}>Ver imagenes</button>
-                {(p.images360.length > 0) && (
-                    <button type="button" onClick={() => setDisplay("360visor")} className={`${display == "360visor" ? "bg-accent text-white font-semibold" : " bg-white text-black "} w-1/3 px-2 py-1 rounded-md transition-all duration-500`}> Ver imagenes 360°</button>
-                )}
-            </div>
-            {display == "images" && (
-                <div className="relative w-full h-full aspect-video  ">
-                    <Carrousel className="relative w-full h-full overflow-hidden rounded-[20px]"  slideClassName="relative" modules={['autoplay']} speed={200} spaceBetween={10} slidesPerView={1} loop navigation>
-                        {p.images.map((i, idx) => (
-                            <Image src={i} alt={`Imagen ${i}`} fill className="object-cover aspect-video" />
-                        ))}
-                    </Carrousel>
+    let bizProperty = p.biz == "ARRIENDO/VENTA" ? "Arriendo / Venta" : p.biz
+    const titleProperty = `${Capitalize(p.type)} en ${bizProperty.toLowerCase()} en ${p.neighborhood}`;
+    return <section className="flex flex-col gap-8 w-full ">
+        <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between w-full ">
+                <span>Breadcrumb</span>
+                <div className="flex gap-4">
+                    <button>Compartir</button>
+                    <button>Guardar</button>
                 </div>
-            )}
-            {display == "360visor" && (
-
-                <Visor360 images360={p.images360} />
-            )}
-
+            </div>
+            <div className="flex flex-col gap-3">
+                <div className="flex gap-4">
+                    <span className="text-sm text-background  font-semibold px-2 py-1 rounded-full bg-primary ">{Capitalize(bizProperty)}</span>
+                    <span className="text-sm px-2 py-1 rounded-full bg-[] ">Codigo {p.code}</span>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                    <h1 className="text-heading-md font-semibold">{titleProperty}</h1>
+                    <p className="text-sm">{p.neighborhood}, {p.city}</p>
+                </div>
+            </div>
         </div>
-
+        {/* GALERIA */}
+        <div className="relative grid grid-cols-2 overflow-hidden w-full h-118 gap-2 rounded-4xl ">
+            <div className="relative w-full h-full">
+                <Image src={p.images[0]} alt={titleProperty} fill className="object-cover" />
+            </div>
+            <div className="relative grid grid-cols-2  w-full h-full  gap-2">
+                <div className="relative w-full h-full">
+                    <Image src={p.images[1]} alt={titleProperty} fill className="object-cover" />
+                </div>
+                <div className="relative w-full h-full">
+                    <Image src={p.images[2]} alt={titleProperty} fill className="object-cover" />
+                </div>
+                <div className="relative w-full h-full">
+                    <Image src={p.images[3]} alt={titleProperty} fill className="object-cover" />
+                </div>
+                <div className="relative w-full h-full">
+                    <Image src={p.images[4]} alt={titleProperty} fill className="object-cover" />
+                </div>
+            </div>
+            <button className="absolute bottom-4 left-4 w-fit px-2 py-1 bg-background rounded-2xl">Ver imagenes 360°</button>
+            <button className="absolute bottom-4 right-4 w-fit px-2 py-1 bg-background rounded-2xl">Ver todas las fotos</button>
+        </div>
     </section>
 }

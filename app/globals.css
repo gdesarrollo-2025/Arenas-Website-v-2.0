@@ -105,6 +105,16 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
+
+  /* Text-size */
+
+  --text-display:3rem;
+  --text-heading-lg:2.25rem;
+  --text-heading-md:1.5rem;
+  --text-heading-sm:1.125rem;
+  --text-body:0.75rem;
+  --text-caption:0.625rem;
+
 }
 
 body {
@@ -113,29 +123,6 @@ body {
 
 h1,h2,h3,h4{
     font-family: 'Montserrat', sans-serif;
-}
-h1{
-    font-size: 3rem;
-}
-
-h2{
-    font-size: 2.25rem;
-}
-
-h3{
-    font-size: 1.5rem;
-}
-
-h4{
-    font-size: 1.125rem;
-}
-
-p{
-    font-size: 0.75rem; 
-}
-
-small{
-    font-size: 0.625rem;
 }
 
 .dark {
@@ -191,15 +178,15 @@ small{
 
 @layer components {
   .container-large {
-     max-width:90dvw; 
+     width:90dvw; 
      margin-inline: auto;
   }
   .container-medium {
-    max-width:83dvw; 
+    width:83dvw; 
      margin-inline: auto;
   }
   .container-small {
-    max-width:70dvw; 
+    width:70dvw; 
     margin-inline: auto;
   }
 }

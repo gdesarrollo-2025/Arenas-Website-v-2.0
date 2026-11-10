@@ -5,9 +5,9 @@ import { usePropertyStore } from "@/features/properties/store/usePropertyStore";
 
 export default function FavoriteList() {
     const { favorites } = usePropertyStore();
-    return <div className="grid grid-cols-3 place-items-center">
+    return <div className="container-large grid grid-cols-4 place-items-center gap-y-5 gap-x-10 ">
         {favorites.map((f, idx) => (
-            <PropertyCardResolver property={f} view="vivienda" />
+            <PropertyCardResolver key={f.code}property={f} view="vivienda" />
         ))}
     </div>
 }

@@ -2,11 +2,11 @@ import Link from "next/link";
 import { menu } from "../../constants/menu.constants";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
-import { quickItem } from "@/shared/type/menu.type";
+import { quickItem } from "@/shared/types/menu.type";
 
 import Pse from "@/public/PSE.svg";
 import Favorites from "@/public/Favorites.svg"
-import SearchCommand from "@/shared/components/searchCommand";
+import SearchCommand from "@/features/search/components/searchCommand";
 
 export default function LayoutHeader() {
 
@@ -16,17 +16,17 @@ export default function LayoutHeader() {
         },
         {
             content: <Link
-                className="rounded-full border-2 aspect-square h-8 p-1 flex "
+                className=" aspect-square w-8 "
                 href="/favoritos"
             >
-                <Favorites className="h-auto stroke-text" />
+                <Favorites className="w-8 stroke-text " />
             </Link>
         },
         {
-            content: <Link className="rounded-full border-2 aspect-square h-8 p-1 flex "
-                href="/favorites">
-                <Pse className="h-auto stroke-text" />
-            </Link>
+            content: <a className=" aspect-square w-8 "
+                href="https://www.psepagos.co/PSEHostingUI/ShowTicketOffice.aspx?ID=5025">
+                <Pse className="w-full h-full bg-[#1F4272] lg:bg-transparent rounded-full" />
+            </a>
         }
     ]
 

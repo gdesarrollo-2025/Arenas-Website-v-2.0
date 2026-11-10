@@ -35,6 +35,6 @@ export default async function Page({ params, searchParams }: props) {
             <PropertyList query={query}/>
         </SearchSection>
         {/* featured */}
-        <FeatureSection querySearch={{ location: query.location, great: "on" }} view="vivienda"/>
+        <FeatureSection querySearch={{ location: query.location ?? undefined, great: "on" }} view="vivienda"/>
     </div>
 }

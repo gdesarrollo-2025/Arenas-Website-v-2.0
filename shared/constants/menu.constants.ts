@@ -1,4 +1,4 @@
-import { MenuItem } from "../type/menu.type"
+import { MenuItem } from "../types/menu.type"
 export const menu: MenuItem[] = [
     {
         name: "Inmuebles",
@@ -20,8 +20,8 @@ export const menu: MenuItem[] = [
     {
         name: "Portal de clientes",
         pages: [
-            { name: "Propietarios", link: "/Propietarios" },
-            { name: "Arrendatarios", link: "/Arrendatarios" },
+            { name: "Propietarios", link: "/propietarios" },
+            { name: "Arrendatarios", link: "/arrendatarios" },
             { name: "Consigna tu inmueble", link: "/#" }
         ]
     },

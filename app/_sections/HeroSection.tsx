@@ -1,31 +1,18 @@
-'use client'
+
 import Image from "next/image";
-import phraseToQuery from "@/features/search/parsers/phraseToQuery";
-import { useState } from "react";
-import useSearch from "@/features/search/hooks/useSearch";
 import HeroSearch from "../../features/search/components/SearchComponent";
 
-
 export default function HeroSection() {
-    const [phrase, setPhrase] = useState('')
 
-    const {search} = useSearch();
-
-    const submit = async (phrase: string) => {
-        const query = phraseToQuery(phrase);
-        await search(query)
-    }
-
-    return <section className="relative flex lg:justify-end items-center justify-center container-large  w-full h-[80vh]  rounded-[20px] overflow-hidden">
-        <div className="relative w-full lg:w-1/2 h-full rounded-[20px] overflow-hidden">
-            <Image src={"/hero-house.webp"} alt="Sección principal filtros arenas inmobiliaria" fill className="object-cover" preload={true} sizes="(min-width: 1025px) 45vw, 90vw " />
-        </div>
-        <div className="absolute flex flex-col items-center lg:items-start justify-center w-full h-full p-5  lg:p-0 bg-background/50 backdrop-blur-xs lg:bg-transparent lg:backdrop-blur-none">
-            <h2 className="font-bold text-text w-fit text-center lg:text-left ">Somos un <br /> ecosistema inmobiliario</h2>
-            <div className="w-fit left-0 mx-1 px-4 py-2 bg-background rounded-lg  shadow-md/40 z-10">
+    return <section className="relative flex  lg:justify-end items-center lg:items-center container-large h-[80vh]">
+        <div className="absolute flex flex-col justify-center gap-6 z-10 inset-x-0 lg:left-0 w-full lg:w-1/2 h-1/2 ">
+            <h2 className="text-heading-lg font-semibold text-center lg:text-left">Somos un <br/> ecosistema inmobiliario</h2>
+            <div className="self-center lg:self-start w-4/5 lg:w-full px-2 py-1 bg-background rounded-lg shadow-[0px_0px_8px_rgba(0,0,0,0.25)]">
                 <HeroSearch/>
             </div>
         </div>
+        <div className="relative  w-full lg:w-6/10 h-full overflow-hidden rounded-4xl opacity-40">
+            <Image src={"/hero-house.webp"} alt="Arenas Inmobiliaria, tu ecosistema inmobiliario" fill className="" />
+        </div>
     </section>
 }
-

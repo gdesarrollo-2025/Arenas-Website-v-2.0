@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { MenuItem } from "../type/menu.type";
+import { MenuItem } from "../types/menu.type";
 import Link from "next/link";
 
 export default function MobileNavDropdown({ content }: { content: MenuItem }) {

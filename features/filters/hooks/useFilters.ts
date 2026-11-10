@@ -55,9 +55,6 @@ export default function useFilters({ query, onApply }: props) {
     const resetFilters = () => {
         setQuery(initialQuery)
     }
-    /* onChange */
-    /* apply filters */
-    /* reset filters */
 
     return { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters}
 }

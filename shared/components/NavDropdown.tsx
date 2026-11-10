@@ -1,9 +1,9 @@
 import { FaChevronDown } from "react-icons/fa";
-import { MenuItem } from "../type/menu.type";
+import { MenuItem } from "../types/menu.type";
 import Link from "next/link";
 
 export default function Navdropdown({ content }: { content: MenuItem }) {
-    return <div className="relative group">
+    return <div className="relative group text-body xl:text-sm">
         <button className="flex gap-1 items-center justify-between h-full group-hover:text-accent">
             {content.name} <FaChevronDown className=" text-inherit rotate-180 group-hover:rotate-0 transition-all duration-300 " />
         </button>

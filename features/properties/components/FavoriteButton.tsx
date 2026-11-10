@@ -9,7 +9,7 @@ export default function FavoriteButton({ p }: { p: Property }) {
     const { favorites, addFavorite, removeFavorite } = usePropertyStore();
     const isFavorite = favorites.some((f: Property) => f.code === p.code)
 
-    return <button className="absolute z-10 h-8 aspect-square rounded-full right-3 top-3 bg-background/50 p-1" type="button"
+    return <button className="h-8 w-auto aspect-square rounded-full bg-background/50 backdrop-blur-xs p-1" type="button"
         onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();

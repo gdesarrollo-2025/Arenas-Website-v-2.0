@@ -1,4 +1,4 @@
-import { location } from "../type/location.type";
+import { location } from "../types/location.type";
 
 export const locations: location[] = [
     {

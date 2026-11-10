@@ -6,13 +6,15 @@ import BoutiqueSection from "./_sections/BoutiqueSection";
 import FocusSection from "./_sections/FocusSection";
 import ServicesSection from "./_sections/ServicesSection";
 import PropertiesSection from "./_sections/PropertiesSection";
+
+//Estructura basica de la landing page
 export default function Home() {
-  return <div className="flex flex-col gap-24 mb-24 mt-[15vh] overflow-hidden">
+  return <div className="flex flex-col gap-14 mb-24 mt-[15vh] overflow-hidden">
     <HeroSection />
     <FocusSection />
     <InformationSection />
     <ServicesSection />
-    <BoutiqueSection />
+    {/* Boutique section */}
     <PropertiesSection />
     <ReviewSection />
   </div>

@@ -34,10 +34,10 @@ export default function FocusSection() {
                 </div>
             ))}
         </div>
-        <div className="flex xl:hidden relative w-full h-full">
-            <Carrousel className="w-full h-full " slideClassName="!flex justify-center items-center p-6" modules={['navigation', 'autoplay']} speed={300} spaceBetween={20} slidesPerView={1} loop navigation breakpoints={{ 426: { slidesPerView: 2 } }}>
+        <div className="flex xl:hidden relative w-full h-full ">
+            <Carrousel className="w-full h-full" slideClassName="!flex justify-center items-center p-2 " modules={['navigation', 'autoplay']} speed={300} spaceBetween={20} slidesPerView={1} loop navigation breakpoints={{ 426: { slidesPerView: 2 } }}>
                 {focusCard.map((f, idx) => (
-                    <div key={idx} className="relative h-100 w-80 overflow-hidden shadow-lg/60 rounded-xl group transition-all duration-300">
+                    <div key={idx} className="relative h-100 w-80 overflow-hidden shadow-md/60 rounded-xl group transition-all duration-300">
                         <Image src={f.image} alt={`Imagen para ${f.title}`} fill className="h-4/5 object-cover" preload={idx <= 1 } sizes="(min-width: 426px) 45vw,90vw"/>
                         <div className="absolute flex items-center justify-center overflow-hidden bottom-0 bg-background h-1/7 w-full group-hover:h-full group-hover:bg-background/50 transition-all duration-300 ">
                             <h3 className="text-center">{f.title}</h3>

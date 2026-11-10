@@ -10,9 +10,3 @@ export default function DetailsSection({ areacons, bedrooms, bathrooms, stratum,
         <div>A. de construcción: {buildyear}</div>
     </section>
 }
-
-/* Año de construcción
-Area construida
-Habitaciobnes
-Baños
-Estrato */

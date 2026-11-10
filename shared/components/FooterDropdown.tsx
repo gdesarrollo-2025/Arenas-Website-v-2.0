@@ -1,24 +1,29 @@
 'use client'
 import { useState } from "react";
-import { branch } from "../type/location.type";
-import { schedule } from "../type/schedule.type";
+import { branch } from "../types/location.type";
+import { schedule } from "../types/schedule.type";
 import { FaChevronDown } from "react-icons/fa6";
 function isBranchArray(
     items: branch[] | schedule[]
 ): items is branch[] {
     return items.length > 0 && "address" in items[0];
 }
-export default function FooterDropdown({ title, items }: { title: string, items: branch[] | schedule[] }) {
+
+type Props ={
+    title?: string;
+    items: branch[] | schedule [];
+}
+export default function FooterDropdown({ title, items }: Props) {
     const [state, setState] = useState(false);
 
     if (isBranchArray(items)) {
-        return <div className="">
-            <button className="flex items-center gap-1 text-accent font-semibold" onClick={() => setState(!state)}>{title} <FaChevronDown className={`${ state ? "rotate-0" :"rotate-180"} text-inherit   transition-all duration-300 "`} /></button>
+        return <div className="text-background ">
+            <button className="w-full flex justify-center items-center gap-1  text-accent font-semibold" onClick={() => setState(!state)}>{title} <FaChevronDown className={`${ state ? "rotate-180" :"0"} text-inherit   transition-all duration-300 "`} /></button>
             <ul className={`list-disc list-inside flex flex-col gap-2 overflow-hidden ${state ? "opacity-100 max-h-90 " : "opacity-0 max-h-0"}  transition-all duration-300`}>{items.map((b, idx) => (
                 <li key={idx} className="flex flex-col">
-                    <p className="font-semibold">{b.name}</p>
-                    <p>{b.address}</p>
-                    <ul className="list-disc list-inside">{b.phones.map((p, idx) => (
+                    <p className="text-base text-accent ">{b.name}</p>
+                    <p className="text-body text-wrap">{b.address}</p>
+                    <ul className="list-disc list-inside text-body">{b.phones.map((p, idx) => (
                         <li key={idx}><small>{p.team} {p.number}</small></li>
                     ))}
                     </ul>
@@ -27,13 +32,13 @@ export default function FooterDropdown({ title, items }: { title: string, items:
             </ul>
         </div>
     } else {
-        return <div className="">
+        return <div className="text-background">
             <p className="font-semibold text-accent">{title}</p>
             {
                 items.map((s, idx) => (
                     <div key={idx}>
-                        <p className="text-accent">{s.days}</p>
-                        <div>
+                        <p className="text-base text-accent">{s.days}</p>
+                        <div className="text-body">
                             {s.openingHours.map((h, idx) => (
                                 <p key={idx}>{h.start} - {h.end}</p>
                             ))}

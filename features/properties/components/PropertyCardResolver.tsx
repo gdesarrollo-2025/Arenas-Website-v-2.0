@@ -10,7 +10,7 @@ type props = {
 }
 export default function PropertyCardResolver({ property, view= "vivienda"}: props) {
 
-    const location = `${property.neighborhood ? property.neighborhood : property.city_zone ? property.city_zone : property.zone}, ${property.city}`;
+    const location = `${property.neighborhood ? Capitalize(property.neighborhood) : Capitalize(property.city_zone) ? Capitalize(property.city_zone) : Capitalize(property.zone)}, ${Capitalize(property.city)}`;
     const title = `${property.type} en ${property.biz}`;
 
     if (view == "comercio") {

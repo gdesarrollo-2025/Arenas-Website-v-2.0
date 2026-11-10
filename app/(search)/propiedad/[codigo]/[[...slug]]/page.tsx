@@ -52,16 +52,8 @@ export default async function Page({ params }: props) {
         redirect(`/propiedad/${codigo}/${canonicalSlugPath}`)
     }
 
-    return <div className="bg-secondary/10">
-        <div className="relative grid grid-cols-[70%_1fr] pt-[15vh] gap-3 max-w-[90vw] w-full mx-auto ">
-            <div className="flex flex-col gap-5  border-2 border-accent pb-5">
-                <MainInfoSection p={propiedad} />
-                <NavDetailsSection />
-                <DetailsSection areacons={propiedad.area_cons} bedrooms={propiedad.bedrooms} bathrooms={propiedad.bathrooms} stratum={propiedad.stratum} buildyear={propiedad.build_year} />
-                <DescriptionSection d={propiedad.description} c={propiedad.amenities} />
-                <LocationSection lat={propiedad.latitude} lon={propiedad.longitude} />
-            </div>
-            <PriceInformationSection code={propiedad.code} biz={propiedad.biz} price={propiedad.price_format} administration={propiedad.administration}/>
-        </div>
+    
+    return <div className="flex flex-col container-large gap-50 my-[15dvh]">
+        <MainInfoSection p={propiedad}/>
     </div>
 }

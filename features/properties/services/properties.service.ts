@@ -9,9 +9,15 @@ import { toPropertyDetail } from "../mappers/Properties.mapper";
 const token = process.env.DOMUS_API_TOKEN;
 const base = process.env.DOMUS_BASE
 
-export async function getPropertiesAll(query: SearchPropertyQuery, perPage: number): Promise<PropertySearch> {
+type CacheOptions = {
+    /** Segundos que la respuesta se guarda en caché antes de revalidarse. */
+    revalidate?: number | false,
+    tags?: string[],
+}
 
-    const options = {
+export async function getPropertiesAll(query: SearchPropertyQuery, perPage: number, cache?: CacheOptions): Promise<PropertySearch> {
+
+    const options: RequestInit = {
         method: "GET",
         headers: {
             Authorization: `${token}`,
@@ -19,8 +25,8 @@ export async function getPropertiesAll(query: SearchPropertyQuery, perPage: numb
             Accept: "application/json",
             "PerPage": `${perPage}`
         },
+        ...(cache && { next: { revalidate: cache.revalidate, tags: cache.tags } }),
     }
-
 
     const finalQuery = buildSearchParams(toDomusQuery(query))
     const params = new URLSearchParams(finalQuery)
@@ -45,7 +51,6 @@ export async function getPropertyByID(code: string) {
     const url = base + `/properties/${code}`;
     const res = await fetch(url, options);
     const data = await res.json();
-    console.log(data.data)
     return toPropertyDetail(data.data);
 }
 /* 93613 */

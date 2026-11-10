@@ -1,4 +1,4 @@
-import slugify from "@/features/search/utils/slugify";
+import slugify from "./slugify";
 
 
 type propiedadSlug= {

@@ -31,24 +31,21 @@ const services = [
     },
 ]
 export default function ServicesSection() {
-    return <section className="container-medium h-full flex flex-col items-center justify-evenly gap-2">
-        <h2 className="font-semibold text-center ">Nuestros servicios</h2>
-        <p className="text-center">Somos un ecosistema inmobiliario que conecta propietarios, compradores, inversionistas y proyectos con
-            soluciones claras, seguras y rentables.</p>
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-fr w-full gap-5 p-5 h-full  bg-secondary/20 rounded-xl lg:bg-transparent">
+    return <section className="container-medium xl:container-small h-full flex flex-col items-center justify-evenly gap-6 lg:gap-15">
+        <h2 className="font-semibold text-center text-heading-md lg:text-display">Nuestros servicios</h2>
+        <p className="text-center text-body text-pretty">Somos un ecosistema inmobiliario que conecta propietarios, compradores, inversionistas y <br/> proyectos con soluciones claras, seguras y rentables.</p>
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-fr  gap-5 p-5 h-full w-full bg-secondary/20 rounded-xl lg:bg-transparent">
             {services.map((s, idx) => (
                 <div key={idx} className="group flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2 h-full lg:px-2 lg:py-4 rounded-xl bg-transparent lg:bg-secondary/20 hover:bg-primary hover:text-white transition-all duration-300">
                     {s.icon}
                     <div className="w-full flex flex-col gap-1 ">
-                        <h4 className="font-bold ">{s.title}</h4>
-                        <p className="text-pretty">{s.text}</p>
-                        <p className="font-semibold">{s.catchPhrase}</p>
+                        <h4 className="text-heading-sm font-bold ">{s.title}</h4>
+                        <p className="text-body text-pretty">{s.text}</p>
+                        <p className="text-body font-semibold">{s.catchPhrase}</p>
                     </div>
                 </div>
             ))}
         </div>
-        <Link href="" className="self-center lg:self-end bg-accent text-white  mx-5 px-2 py-1 rounded-sm hover:bg-primary active:brightness-125 transition-all duration-300">Ver mas...</Link>
-
     </section>
 }
 
