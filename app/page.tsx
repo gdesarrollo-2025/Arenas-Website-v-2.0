@@ -9,7 +9,7 @@ import PropertiesSection from "./_sections/PropertiesSection";
 
 //Estructura basica de la landing page
 export default function Home() {
-  return <div className="flex flex-col gap-14 mb-24 mt-[15vh] overflow-hidden">
+  return <div className="flex flex-col gap-14 mb-24 mt-[15svh] overflow-hidden">
     <HeroSection />
     <FocusSection />
     <InformationSection />

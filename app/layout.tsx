@@ -8,8 +8,6 @@ import LayoutFooter from "@/shared/layout/footer/LayoutFooter";
 import { cn } from "@/shared/lib/utils";
 import Script from "next/script";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -28,15 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={cn("h-full scroll-smooth", "antialiased", montserrat.variable, "font-sans", geist.variable)}
+      lang="es"
+      className={cn("h-full scroll-smooth", "antialiased", montserrat.variable, "font-sans")}
     >
       <body className="min-h-full flex flex-col justify-between">
-        <LayoutHeader self-start/>
+        <LayoutHeader self-start />
         {children}
+        <Script id="hs-script-loader" strategy="lazyOnload" src="//js-na1.hs-scripts.com/8765689.js" />
         <LayoutFooter />
       </body>
-      <Script id="hs-script-loader" strategy="afterInteractive" src="//js-na1.hs-scripts.com/8765689.js" />
     </html>
   );
 }

@@ -11,7 +11,7 @@ export default function HeaderDesktop({ menu, quickButtons }: { menu: MenuItem[]
                 <NavDropdown key={idx} content={m} />
             ))}
         </nav>
-        <Link href="/" className=" relative flex  place-self-start xl:place-self-center h-[12vh] aspect-video mx-5 "><Image src="/Logo.svg" alt="Logo Arenas" fill className="self-center object-scale-down "/></Link>
+        <Link href="/" className=" relative flex  place-self-start xl:place-self-center h-[12vh] aspect-video mx-5 "><Image src="/Logo.svg" alt="Logo Arenas" preload fetchPriority="high" fill className="self-center object-scale-down "/></Link>
         <div className="flex justify-self-end items-center gap-3 ">
             <div className="flex items-center gap-1">
                 {quickButtons.map((q: quickItem, idx: number) => (
