@@ -4,8 +4,9 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import MainInfoSection from "./_sections/MainInfoSection";
 import NavDetailsSection from "./_sections/NavDetailsSection";
-import DetailsSection from "./_sections/DetailsSection";
+import ResumeSection from "./_sections/ResumeSection";
 import DescriptionSection from "./_sections/DescriptionSection";
+import DetailsSection from "./_sections/DetailsSection";
 import LocationSection from "./_sections/LocationSection";
 import formatPrice from "@/shared/utils/formatPrice";
 import { Capitalize } from "@/shared/utils/formatText";
@@ -52,8 +53,19 @@ export default async function Page({ params }: props) {
         redirect(`/propiedad/${codigo}/${canonicalSlugPath}`)
     }
 
-    
-    return <div className="flex flex-col container-large gap-50 my-[15dvh]">
-        <MainInfoSection p={propiedad}/>
+
+    return <div className="flex flex-col container-small gap-10 my-[15dvh]">
+        <MainInfoSection p={propiedad} />
+
+        <div className="grid grid-cols-[70%_30%] gap-5">
+            <div className="flex flex-col w-full gap-10">
+                <NavDetailsSection />
+                <ResumeSection areacons={propiedad.area_cons} bedrooms={propiedad.bedrooms} bathrooms={propiedad.bathrooms} stratum={propiedad.stratum} buildyear={propiedad.build_year} />
+                <DescriptionSection d={propiedad.description} />
+                <DetailsSection c={propiedad.amenities}/>
+                <LocationSection lat={propiedad.latitude} lon={propiedad.longitude}/>
+            </div>
+            <PriceInformationSection code={propiedad.code} biz={propiedad.biz} price={propiedad.price_format} administration={propiedad.administration}/>
+        </div>
     </div>
 }

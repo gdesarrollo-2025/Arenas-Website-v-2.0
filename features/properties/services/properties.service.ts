@@ -51,6 +51,7 @@ export async function getPropertyByID(code: string) {
     const url = base + `/properties/${code}`;
     const res = await fetch(url, options);
     const data = await res.json();
+    console.log(data)
     return toPropertyDetail(data.data);
 }
 /* 93613 */

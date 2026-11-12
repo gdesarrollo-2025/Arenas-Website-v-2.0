@@ -1,7 +1,8 @@
 
 export type amenitie = {
     id: number,
-    name: string
+    name: string,
+    type: number
 }
 
 export type PropertyDetail = {
@@ -20,7 +21,7 @@ export type PropertyDetail = {
     bathrooms: number,
     stratum: number,
     build_year: number,
-    price_format: string,
+    price_format: string[],
     administration: number,
     description: string,
     latitude: number,
