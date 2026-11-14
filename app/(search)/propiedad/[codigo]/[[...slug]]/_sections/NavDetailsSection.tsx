@@ -5,19 +5,19 @@ type navLink = {
     href: string;
 }
 const navProperty: navLink[] = [
-    { title: "Resumen", href: "" },
-    { title: "Descripción", href: "" },
-    { title: "Caracteristicas", href: "" },
-    { title: "Ubicación", href: "" },
+    { title: "Resumen", href: "Resume" },
+    { title: "Descripción", href: "Description" },
+    { title: "Caracteristicas", href: "Characteristics" },
+    { title: "Ubicación", href: "Location" },
     { title: "Similares", href: "" },
 ]
 export default function NavDetailsSection() {
     return <nav className="h-10 flex justify-around  items-stretch ">
         {navProperty.map((n: navLink) => (
-            <a key={n.title} href={n.href} title={n.title} className="group w-full focus-withi:text-primary">
+            <button key={n.title} onClick={() => document.getElementById(n.href)?.scrollIntoView()} title={n.title} className="group w-full focus-withi:text-primary">
                 <span>{n.title}</span>
                 <hr className="border border-neutral-200 group-hover:border-neutral-900 transition-colors duration-300"/>
-            </a>
+            </button>
         ))}
     </nav>
 }

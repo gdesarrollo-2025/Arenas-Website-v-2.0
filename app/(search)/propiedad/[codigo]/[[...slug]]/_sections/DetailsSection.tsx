@@ -1,7 +1,7 @@
 import { amenitie } from "@/features/properties/types/PropertyDetail.type";
 
 export default function DetailsSection({c}: {c: amenitie[]}) {
-    return <section className="flex flex-col gap-4 w-full">
+    return <section id="Characteristics" className="flex flex-col gap-4 w-full">
         <div className="flex justify-between items-center">
             <h2 className="font-semibold text-heading-md">Caracteristicas</h2>
             <span className="text-base">{c.length} en total</span>

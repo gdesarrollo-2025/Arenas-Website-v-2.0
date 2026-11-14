@@ -6,10 +6,10 @@ import Image from "next/image";
 import Carrousel from "@/shared/components/Carrousel";
 import Visor360 from "@/shared/components/Visor360";
 import { Capitalize } from "@/shared/utils/formatText";
+import DisplayImages from "@/shared/components/DisplayImages";
 
 export default function MainInfoSection({ p }: { p: PropertyDetail }) {
 
-    const [display, setDisplay] = useState("images");
 
     let bizProperty = p.biz == "ARRIENDO/VENTA" ? "Arriendo / Venta" : p.biz
     const titleProperty = `${Capitalize(p.type)} en ${bizProperty.toLowerCase()} en ${p.neighborhood}`;
@@ -52,8 +52,11 @@ export default function MainInfoSection({ p }: { p: PropertyDetail }) {
                     <Image src={p.images[4]} alt={titleProperty} fill className="object-cover" />
                 </div>
             </div>
-            <button className="absolute bottom-4 left-4 w-fit px-2 py-1 bg-background rounded-2xl">Ver imagenes 360°</button>
-            <button className="absolute bottom-4 right-4 w-fit px-2 py-1 bg-background rounded-2xl">Ver todas las fotos</button>
+            {(p.images360.length > 0) && (
+                <DisplayImages images={p.images360} className={"absolute bottom-4 left-4 w-fit px-2 py-1 bg-background rounded-2xl"}> Ver imagenes 360°</DisplayImages>
+            )}
+            <DisplayImages images={p.images} className={"absolute bottom-4 right-4 w-fit px-2 py-1 bg-background rounded-2xl"}> Ver Todas las fotos</DisplayImages>
+
         </div>
     </section>
 }

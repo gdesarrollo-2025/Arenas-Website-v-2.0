@@ -19,11 +19,10 @@ export default function PriceInformationSection({ code, biz, price, administrati
         titlePrice = "Canon mensual / Precio de venta"
         totalPrice = Number(price[0]) + administration
     }
-    console.log(totalPrice)
     return <aside className="sticky flex flex-col gap-3 top-[15vh] w-full h-fit  px-5 py-3 bg-white rounded-2xl">
         <div className="flex flex-col gap items-start">
             <p>{titlePrice}</p>
-            <span className="font-semibold text-heading-lg tabular-nums">${price[0]} / ${price[1]}</span>
+            <span className="font-semibold text-heading-lg tabular-nums">{`$${price[0]} ${price.length>1 ? `/ $${price[1]}`:""}`}</span>
         </div>
         {(administration != 0) && (
             <div className="flex flex-col gap-2">
@@ -49,9 +48,8 @@ export default function PriceInformationSection({ code, biz, price, administrati
             </div>
         </div>
         <div className="flex flex-col gap-2 px-6">
-            <button className="w-full  py-3 bg-accent text-primary text-semibold rounded-xl">Escribir por Whatsapp</button>
+            <button className="w-full  py-3 bg-accent text-primary text-semibold rounded-xl">Chatear con margarita</button>
             <button className="w-full  py-3 text-primary border-primary border rounded-xl">Agendar una visita</button>
-            <button className="w-full  py-3 underline">Chatear con Margarita</button>
         </div>
     </aside>
 }

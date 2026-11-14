@@ -2,7 +2,7 @@ import { PropertyDetail } from "@/features/properties/types/PropertyDetail.type"
 
 export default function ResumeSection({ areacons, bedrooms, bathrooms, stratum, buildyear }:
     { areacons: number, bedrooms: number, bathrooms: number, stratum: number, buildyear: number }) {
-    return <section id="Details" className="w-full grid grid-cols-5 gap-5">
+    return <section id="Resume" className="w-full grid grid-cols-5 gap-5">
         <div className="flex flex-col items-start justify-center w-full px-4 aspect-square bg-neutral-50 rounded-2xl ">
             <span className="text-heading-md font-semibold">{areacons} m<sup>2</sup></span>
             <p className="text-body text-neutral-500">Área construida</p>

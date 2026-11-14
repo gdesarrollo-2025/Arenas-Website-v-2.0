@@ -56,7 +56,6 @@ export default async function Page({ params }: props) {
 
     return <div className="flex flex-col container-small gap-10 my-[15dvh]">
         <MainInfoSection p={propiedad} />
-
         <div className="grid grid-cols-[70%_30%] gap-5">
             <div className="flex flex-col w-full gap-10">
                 <NavDetailsSection />
