@@ -1,10 +1,6 @@
 'use client'
 import { PropertyDetail } from "@/features/properties/types/PropertyDetail.type";
-import { useState } from "react";
 import Image from "next/image";
-
-import Carrousel from "@/shared/components/Carrousel";
-import Visor360 from "@/shared/components/Visor360";
 import { Capitalize } from "@/shared/utils/formatText";
 import DisplayImages from "@/shared/components/DisplayImages";
 
@@ -53,7 +49,7 @@ export default function MainInfoSection({ p }: { p: PropertyDetail }) {
                 </div>
             </div>
             {(p.images360.length > 0) && (
-                <DisplayImages images={p.images360} className={"absolute bottom-4 left-4 w-fit px-2 py-1 bg-background rounded-2xl"}> Ver imagenes 360°</DisplayImages>
+                <DisplayImages images={p.images360} image360 className={"absolute bottom-4 left-4 w-fit px-2 py-1 bg-background rounded-2xl"}> Ver imagenes 360°</DisplayImages>
             )}
             <DisplayImages images={p.images} className={"absolute bottom-4 right-4 w-fit px-2 py-1 bg-background rounded-2xl"}> Ver Todas las fotos</DisplayImages>
 
