@@ -7,13 +7,19 @@ import FiltersBiz from "./FiltersBiz";
 import FiltersArea from "./FiltersArea";
 import FiltersPrice from "./FiltersPrice";
 import { propertyComercial } from "@/shared/constants/properties.constants";
+import FiltersButtons from "./FiltersButtons";
+import useSearch from "@/features/search/hooks/useSearch";
 
 type props = {
     query: SearchPropertyQuery
 }
 
 export default function ComercialFiltersPanel({ query }: props) {
-    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeSlider, applyFilters, resetFilters } = useFilters({ query })
+    const section = "comercio";
+
+    const { search }= useSearch();
+
+    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeSlider, applyFilters, resetFilters } = useFilters({ query, section , onApply: search})
     return <FieldGroup>
         <FiltersPropertyType options={propertyComercial} value={finalQuery.property ?? ""} onChange={(code) => onChangeCheckbox("property", code)} />
         <FieldSeparator />
@@ -23,5 +29,6 @@ export default function ComercialFiltersPanel({ query }: props) {
         <FieldSeparator />
         <FiltersPrice min={finalQuery.minPrice ?? 1000000} max={finalQuery.maxPrice ?? 5000000} onChange={(values) => onChangeSlider("minPrice", "maxPrice", values)} />
         <FieldSeparator />
+        <FiltersButtons onApply={applyFilters} onReset={resetFilters} />
     </FieldGroup>
 }

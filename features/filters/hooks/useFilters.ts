@@ -3,9 +3,10 @@ import { useState } from "react";
 
 type props = {
     query: SearchPropertyQuery;
-    onApply?: (query: SearchPropertyQuery) => void | Promise<void> ;
+    section: string;
+    onApply?: (query: SearchPropertyQuery, section:string) => void | Promise<void> ;
 }
-export default function useFilters({ query, onApply }: props) {
+export default function useFilters({ query, section, onApply }: props) {
 
     const initialQuery = query
     const [finalQuery, setQuery] = useState<SearchPropertyQuery>(initialQuery)
@@ -48,8 +49,7 @@ export default function useFilters({ query, onApply }: props) {
     };
     
     const applyFilters = () => {
-        console.log("usefilters", finalQuery)
-        onApply?.(finalQuery)
+        onApply?.(finalQuery, section)
     }
 
     const resetFilters = () => {

@@ -21,7 +21,7 @@ function slugify(str: string): string {
 
 export default function queryToUrl(query: SearchPropertyQuery): string {
 
-    const pathSegments: string[] = ['/propiedades'];
+    const pathSegments: string[] = [];
 
     /* negocio */
     if (query.biz) pathSegments.push(`${slugify(String(BizTypes.find((b) => String(b.code) == query.biz)?.name))}`)
@@ -95,6 +95,6 @@ export default function queryToUrl(query: SearchPropertyQuery): string {
     if (query.maxArea) params.append('maxArea', String(query.maxArea))
     if (query.stratum) params.append('stratum', query.stratum)
 
-    console.log("params:",params.getAll," toString:", params.toString())
+    console.log(" toString:", params.toString())
     return pathSegments.join('/') + `?${params.toString()}`;
 }

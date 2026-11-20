@@ -1,32 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { IconType } from "react-icons";
-import { FaBath, FaBed, FaRulerCombined } from "react-icons/fa6";
-import { FaParking } from "react-icons/fa";
 
 import { Property } from "../types/Property.type";
 
 import formatPrice from "@/shared/utils/formatPrice";
 import FavoriteButton from "./FavoriteButton";
+import { Feature } from "./PropertyCardResolver";
 
-// 156.81 -> "157" con separadores colombianos
-const areaFormatter = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 0 });
+type Props = { property: Property; location: string; title: string, hasAdmin: boolean, features: Feature[]  };
 
-type Feature = { icon: IconType; value: number; display: string; label: string };
-
-type Props = { property: Property; location: string; title: string };
-
-export default function PropertyLivingCard({ property, location, title }: Props) {
-    const area = Number(property.area_cons || property.area_lot || 0);
-    const hasAdmin = Number(property.administration) > 0;
-
-    const features: Feature[] = [
-        { icon: FaRulerCombined, value: area, display: `${areaFormatter.format(area)} m²`, label: "de área" },
-        { icon: FaBed, value: Number(property.bedrooms), display: String(property.bedrooms), label: "habitaciones" },
-        { icon: FaBath, value: Number(property.bathrooms), display: String(property.bathrooms), label: "baños" },
-        { icon: FaParking, value: Number(property.parking), display: String(property.parking), label: "parqueaderos" },
-    ].filter((f) => f.value > 0);
-
+export default function PropertyLivingCard({ property, location, title, hasAdmin, features }: Props) {
     return (
         <article className="relative flex h-full w-full flex-col overflow-hidden rounded-xl bg-background shadow-lg/40 transition-shadow hover:shadow-xl/40 has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-offset-2">
             <div className="relative aspect-4/3 w-full bg-neutral-100 ">
@@ -56,7 +39,7 @@ export default function PropertyLivingCard({ property, location, title }: Props)
                 </h3>
 
                 {/* Único elemento en negrita fuerte. Usa el campo numérico del precio (price_format no trae "$") */}
-                <p className="mt-2 text-heading-sm font-bold tabular-nums">{property.price_format}</p>
+                <p className="mt-2 text-heading-sm font-bold tabular-nums">$ {property.price_format}</p>
 
                 {/* Siempre se renderiza: si no hay administración queda invisible pero conserva su alto */}
                 <div className={hasAdmin ? "" : "invisible"} aria-hidden={!hasAdmin}>

@@ -12,13 +12,17 @@ import { propertyVivienda } from "@/shared/constants/properties.constants"
 import useFilters from "../hooks/useFilters"
 import FiltersCity from "./FiltersCity"
 import FiltersNeighborhood from "./FiltersNeighborhood"
+import useSearch from "@/features/search/hooks/useSearch"
 
 type props = {
     query: SearchPropertyQuery;
 }
 export default function ViviendaFiltersPanel({ query }: props) {
 
-    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query });
+    const section = "vivienda";
+
+    const { search } = useSearch();
+    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query, section, onApply: search });
 
     const bedroomsArray = finalQuery.bedrooms?.split(",").filter(Boolean) ?? [];
     const bathroomsArray = finalQuery.bathrooms?.split(",").filter(Boolean) ?? [];

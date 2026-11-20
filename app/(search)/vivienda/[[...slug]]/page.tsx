@@ -4,12 +4,26 @@ import { SearchPropertyQuery } from "@/features/properties/types/ProperyQuery.ty
 import FeatureSection from "../../_sections/FeatureSection";
 import PropertyList from "@/features/properties/components/PropertyList";
 import ViviendaFiltersPanel from "@/features/filters/components/ViviendaFiltersPanel";
+import urlToQuery from "@/features/search/mappers/urlToQuery";
 
-export default function Page() {
+type props = {
+    params: Promise<{
+        slug: string[];
+    }>;
+    searchParams: Promise<Record<string, string | string[] | undefined>>;
+}
 
-    const query: SearchPropertyQuery = { destination: 1 }
+export async function generateMetadata({ params }: props) {
+
+}
+
+export default async function Page({params, searchParams}: props) {
+
+    const [{ slug }, queryParams] = await Promise.all([params, searchParams]);
+
+    const query: SearchPropertyQuery = { destination: 1, ...urlToQuery(slug), ...queryParams }
     if (!query.page) query.page = 1;
-    
+
     return <div className="flex flex-col gap-5">
         <HeroSearchSection title="vivienda" image="/hero-house.webp" />
         <SearchSection filtersPanel={<ViviendaFiltersPanel query={query} />}>

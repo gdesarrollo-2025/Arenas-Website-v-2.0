@@ -5,13 +5,11 @@ import { useRouter } from "next/navigation";
 export default function useSearch(){
     const router = useRouter();
 
-    const search = async ( query: SearchPropertyQuery ) => {
-        console.log(query)
-        return router.push(queryToUrl(query))
+    const search = async ( query: SearchPropertyQuery, section:string ) => {
+        
+        console.log("search",queryToUrl(query))
+        return router.push(`/${section}/${queryToUrl(query)}`)
     } 
 
-    const getParams = async() => {
-        
-    }
     return {search}
 }

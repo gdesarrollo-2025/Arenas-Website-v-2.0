@@ -11,7 +11,7 @@ import PropertyList from "@/features/properties/components/PropertyList";
 
 type props = {
     params: Promise<{
-        slug: string[];
+        slug: string[] ;
     }>;
     searchParams: Promise<Record<string, string | string[] | undefined>>;
 }

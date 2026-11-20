@@ -27,7 +27,7 @@ export default function SearchComponent() {
         } else {
             const query = phraseToQuery(phrase)
             query.biz = typeSearch == "Arriendo" ? "1" : "2"            
-            await search(query)
+            await search(query, "propiedades")
         }
     }
     return <div className="flex flex-col gap-2 ">

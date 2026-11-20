@@ -20,9 +20,10 @@ type props = {
 }
 export default function SearchFiltersPanel({ query }: props) {
 
+    const section = "propiedades"
     const { search } = useSearch();
 
-    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query, onApply: search });
+    const { finalQuery, onChangeCheckbox, onChangeSelect, onChangeToggle, onChangeSlider, applyFilters, resetFilters } = useFilters({ query,section, onApply: search });
 
     const bedroomsArray = finalQuery.bedrooms?.split(",").filter(Boolean) ?? [];
     const bathroomsArray = finalQuery.bathrooms?.split(",").filter(Boolean) ?? [];

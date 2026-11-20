@@ -20,7 +20,7 @@ type PageItem = number | "start-ellipsis" | "end-ellipsis";
  */
 function getPageItems(current: number, total: number, siblings = 1): PageItem[] {
     const range = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => from + i);
-    const maxItems = siblings * 2 + 5; // primera + última + actual + vecinos + 2 huecos
+    const maxItems = siblings * 2 + 3; // primera + última + actual + vecinos + 2 huecos
 
     if (total <= maxItems) return range(1, total);
 
@@ -36,13 +36,16 @@ function getPageItems(current: number, total: number, siblings = 1): PageItem[] 
     return [1, "start-ellipsis", ...range(left, right), "end-ellipsis", total];
 }
 
-const base = "flex size-10 items-center justify-center rounded-md text-sm tabular-nums transition-colors";
+const base =
+    "flex shrink-0 size-8 sm:size-10 items-center justify-center rounded-md text-xs sm:text-sm tabular-nums transition-colors";
+
+// Anterior/Siguiente: en móvil solo el ícono (cuadrado), desde sm con texto
+const navBtn = `${base} sm:w-auto sm:gap-2 sm:px-3`;
 
 export default function Pagination({ current, total }: PaginationProps) {
     const searchParams = useSearchParams();
     const path = usePathname();
 
-    // current puede llegar como string desde searchParams
     const totalPages = Math.max(1, Number(total) || 1);
     const page = Math.min(Math.max(1, Number(current) || 1), totalPages);
 
@@ -57,16 +60,16 @@ export default function Pagination({ current, total }: PaginationProps) {
     const items = getPageItems(page, totalPages);
 
     return (
-        <nav aria-label="Paginación" className="flex w-full justify-center">
-            <ul className="flex items-center gap-1 sm:gap-2">
+        <nav aria-label="Paginación" className="flex w-full min-w-0 justify-center">
+            <ul className="flex max-w-full items-center gap-0.5 sm:gap-2">
                 <li>
                     {page > 1 ? (
-                        <Link href={hrefFor(page - 1)} className={`${base} w-auto gap-2 px-2 hover:bg-accent/20`} aria-label="Página anterior">
+                        <Link href={hrefFor(page - 1)} className={`${navBtn} hover:bg-accent/20`} aria-label="Página anterior">
                             <FaChevronLeft aria-hidden className="size-3" />
                             <span className="hidden sm:inline">Anterior</span>
                         </Link>
                     ) : (
-                        <span className={`${base} w-auto gap-2 px-2 text-neutral-300`} aria-hidden>
+                        <span className={`${navBtn} text-neutral-300`} aria-hidden>
                             <FaChevronLeft className="size-3" />
                             <span className="hidden sm:inline">Anterior</span>
                         </span>
@@ -95,12 +98,12 @@ export default function Pagination({ current, total }: PaginationProps) {
 
                 <li>
                     {page < totalPages ? (
-                        <Link href={hrefFor(page + 1)} className={`${base} w-auto gap-2 px-2 hover:bg-accent/20`} aria-label="Página siguiente">
+                        <Link href={hrefFor(page + 1)} className={`${navBtn} hover:bg-accent/20`} aria-label="Página siguiente">
                             <span className="hidden sm:inline">Siguiente</span>
                             <FaChevronRight aria-hidden className="size-3" />
                         </Link>
                     ) : (
-                        <span className={`${base} w-auto gap-2 px-2 text-neutral-300`} aria-hidden>
+                        <span className={`${navBtn} text-neutral-300`} aria-hidden>
                             <span className="hidden sm:inline">Siguiente</span>
                             <FaChevronRight className="size-3" />
                         </span>

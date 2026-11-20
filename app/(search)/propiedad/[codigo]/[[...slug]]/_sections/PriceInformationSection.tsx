@@ -22,19 +22,19 @@ export default function PriceInformationSection({ code, biz, price, administrati
     return <aside className="sticky flex flex-col gap-3 top-[15vh] w-full h-fit  px-5 py-3 bg-white rounded-2xl">
         <div className="flex flex-col gap items-start">
             <p>{titlePrice}</p>
-            <span className="font-semibold text-heading-lg tabular-nums">{`$${price[0]} ${price.length>1 ? `/ $${price[1]}`:""}`}</span>
+            <span className="font-semibold text-heading-lg tabular-nums">{`${formatPrice(Number(price[0]))} ${price.length>1 ? `/ ${formatPrice(Number(price[1]))}`:""}`}</span>
         </div>
         {(administration != 0) && (
             <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                     <p>Administración</p>
-                    <span className="font-semibold tabular-nums">${administration}</span>
+                    <span className="font-semibold tabular-nums">{formatPrice(administration)}</span>
                 </div>
                 <hr />
                 {(biz == "ARRIENDO" || biz == "ARRIENDO/VENTA") && (
                     <div className="flex items-center justify-between ">
                         <p className="font-semibold">Total mensual</p>
-                        <span className="font-semibold tabular-nums">${Number(totalPrice)}</span>
+                        <span className="font-semibold tabular-nums">{formatPrice(Number(totalPrice))}</span>
                     </div>
                 )}
             </div>

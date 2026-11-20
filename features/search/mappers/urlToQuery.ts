@@ -95,11 +95,14 @@ function extractNeighborhood(str: string): string | undefined {
 export default function urlToQuery(slug: string[]): SearchPropertyQuery {
 
     let query: SearchPropertyQuery = {}
-    for (const partSlug of slug) {
-        if (!query.biz) query.biz = extractBiz(partSlug);
-        if (!query.property) query.property = extractPropertyType(partSlug);
-        if (!query.location) query.location = extractCities(partSlug);
-        if (!query.neighborhood) query.neighborhood = extractNeighborhood(partSlug);
+
+    if (slug != undefined) {
+        for (const partSlug of slug) {
+            if (!query.biz) query.biz = extractBiz(partSlug);
+            if (!query.property) query.property = extractPropertyType(partSlug);
+            if (!query.location) query.location = extractCities(partSlug);
+            if (!query.neighborhood) query.neighborhood = extractNeighborhood(partSlug);
+        }
     }
     return query
 }
